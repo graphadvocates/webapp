@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
 import { Box } from "@chakra-ui/react";
-import MainNavigation from "../components/layout/MainNavigation.jsx";
 
 function ProfileItemID(props) {
     return (
         <Box>
-            <MainNavigation />
             <h1> This a detail page </h1>
         </Box>
     );

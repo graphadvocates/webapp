@@ -6,22 +6,25 @@ import {
   VStack,
   HStack
 } from "@chakra-ui/react";
-import MainNavigation from '../components/layout/MainNavigation.jsx'
+import SmallWithSocial from "../components/layout/Footer.jsx";
 
 export default function Home() {
   return (
-    <Box bg={useColorModeValue("rgba(12,10,29,1.0)", "blue.900")}>
-      <MainNavigation />
+    <Box>
       <VStack>
-        <Image src="/assets/banner.jpeg"/>
-        
-        <HStack>
-          <Heading p="5" color="gray.200">
-            Open community updates supporting the Graph and Web3 community
+        <Image maxW={1500} src="/assets/banner.jpeg"/>
+
+        <HStack maxW={1500}>
+          <Heading p="5">
+            Open community updates supporting the Graph Protocol and Web3 community
           </Heading>
           <Image src="/assets/CommunityTalk.jpg"/>
         </HStack>
+        
         <Image src="/assets/AdvocateDAO@2x.png"/>
+
+        <SmallWithSocial />
+
       </VStack>
     </Box> 
   )
