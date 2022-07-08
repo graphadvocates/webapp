@@ -1,9 +1,8 @@
+import { ReactNode } from "react";
 import {
     Box,
     Flex,
-    Avatar,
     HStack,
-    Link,
     IconButton,
     Button,
     Menu,
@@ -14,52 +13,73 @@ import {
     useDisclosure,
     useColorModeValue,
     Stack,
+    Img,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import NavLink from "./NavLink";
+import NextLink from "next/link"
+import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
 
 export default function MainNavigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-        <>
-            {/* <Box >bg={useColorModeValue("purple.900", "blue.600")} px={4}> */}
-            <Box 
-                bgGradient='linear(to-r, purple.800, purple.900, purple.800)'
-                pl="3" pr="3"
-            >
-                <Flex
-                    h={16}
-                    alignItems={"center"}
-                    justifyContent={"space-between"}
-                >
-                    <IconButton
-                        size={"md"}
-                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                        aria-label={"Open Menu"}
-                        display={{ md: "none" }}
-                        onClick={isOpen ? onClose : onOpen}
-                    />
-                    
-                    <HStack>
-                        <Avatar name='logo' src='/assets/defaultProf.png' />
-                        <Link color="gray.200" href="/">Graph Advocates</Link>
-                    </HStack>
-                    
-                    <HStack spacing={8} alignItems={"center"}>
-                        <HStack
-                            as={"nav"}
-                            spacing={4}
-                            display={{ base: "none", md: "flex" }}
-                            color="gray.200"
-                        >
-                            <Link href="/">Advocates</Link>
-                            <Link href="/daomembers">DAO Members</Link>
-                            <Link href="https://docs.graphadvocates.com/">Docs</Link>
-                        </HStack>
-                    </HStack>
+        <Box
+            bg={useColorModeValue("rgba(12,10,29,1.0)", "blue.900")}
+            px={4}
+            sx={{
+                position: "-webkit-sticky",
+                /* Safari */ position: "sticky",
+                top: "0",
+            }}
+            opacity={0.8}
+        >
+            <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+                <IconButton
+                    size={"md"}
+                    icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                    aria-label={"Open Menu"}
+                    display={{ md: "none" }}
+                    onClick={isOpen ? onClose : onOpen}
+                />
 
+                <HStack spacing={8} alignItems={"center"}>
+                    <NextLink href="/">
+                        <Img src="assets/graphIcon.svg" />
+                    </NextLink>
+
+                    <NavLink />
+                </HStack>
+
+                <Flex alignItems={"center"}>
+                    <Menu>
+                        <MenuButton
+                            as={Button}
+                            rounded={"full"}
+                            variant={"link"}
+                            cursor={"pointer"}
+                            minW={0}
+                        >
+                            <Search2Icon />
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem>Link 1</MenuItem>
+                            <MenuItem>Link 2</MenuItem>
+                            <MenuDivider />
+                            <MenuItem>Link 3</MenuItem>
+                        </MenuList>
+                    </Menu>
                 </Flex>
-            </Box>
-        </>
+            </Flex>
+
+            {isOpen ? (
+                <Box pb={4} display={{ md: "none" }}>
+                    <Stack as={"nav"} spacing={4}>
+                        {/* {Links.map((link) => (
+                <NavLink key={link}>{link}</NavLink>
+              ))} */}
+                    </Stack>
+                </Box>
+            ) : null}
+        </Box>
     );
 }
