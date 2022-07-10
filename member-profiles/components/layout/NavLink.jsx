@@ -52,8 +52,8 @@ export default function NavLink() {
                     rounded={"md"}
                     _hover={{
                         textDecoration: "none",
-                        bg: useColorModeValue("gray.200", "gray.700"),
-                        color: useColorModeValue("black", "black"),
+                        bg: "gray.200",
+                        color: "black",
                     }}
                     color="gray.200"
                     key={index}
@@ -74,24 +74,11 @@ export default function NavLink() {
                                     variant={"link"}
                                     cursor={"pointer"}
                                     minW={0}
-                                    color={
-                                        isOpen
-                                            ? useColorModeValue(
-                                                  "black",
-                                                  "black"
-                                              )
-                                            : "gray.200"
-                                    }
+                                    color={isOpen ? "black" : "gray.200"}
                                     _hover={{
                                         textDecoration: "none",
-                                        bg: useColorModeValue(
-                                            "gray.200",
-                                            "gray.700"
-                                        ),
-                                        color: useColorModeValue(
-                                            "black",
-                                            "black"
-                                        ),
+                                        bg: "gray.200",
+                                        color: "black",
                                     }}
                                 >
                                     {link.name}
@@ -111,8 +98,8 @@ export default function NavLink() {
                             href={link.path}
                             _hover={{
                                 textDecoration: "none",
-                                bg: useColorModeValue("gray.200", "gray.700"),
-                                color: useColorModeValue("black", "black"),
+                                bg: "gray.200",
+                                color: "black",
                             }}
                         >
                             {link.name}

@@ -52,7 +52,7 @@ export default function roles() {
                     <p>
                         Look out for the community, share content, answer
                         community questions, or provide directions to additional
-                        resources, posted in The Graph's Telegram, Forum,
+                        resources, posted in The Graph&apos;s Telegram, Forum,
                         Discord, or Reddit channels.
                     </p>
                     <Heading>Community Care</Heading>
