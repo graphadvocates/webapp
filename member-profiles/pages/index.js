@@ -6,7 +6,6 @@ import {
   VStack,
   HStack
 } from "@chakra-ui/react";
-import SmallWithSocial from "../components/layout/Footer.jsx";
 
 export default function Home() {
   return (
@@ -22,8 +21,6 @@ export default function Home() {
         </HStack>
         
         <Image alt="advocateDAO banner" src="/assets/AdvocateDAO@2x.png"/>
-
-        <SmallWithSocial />
 
       </VStack>
     </Box> 
