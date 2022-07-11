@@ -4,6 +4,7 @@ import Head from 'next/head'
 import MainNavigation from "../components/layout/MainNavigation.jsx";
 import { extendTheme } from '@chakra-ui/react'
 import {mode} from '@chakra-ui/theme-tools'
+import Footer from "../components/layout/Footer"
 
 function MyApp({ Component, pageProps }) {
 
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <MainNavigation />
       <Component {...pageProps} />
+      <Footer/>
     </ChakraProvider>
   )
 }
