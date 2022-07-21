@@ -11,8 +11,7 @@ function ProfileItemID(props) {
 
 export async function getStaticPaths() {
     const { Clickup } = require("clickup.js");
-    //const token = "pk_54085711_UPTD4BLL3SPMJI2VUD5BYK359WQ0HRQA"; //100req/min API access token
-    const token = "pk_42375693_4LS96USPE78O3OZ3PY9APWHZV35JMCJY"; //Full rights - token - dangerous
+    //const token = process.env.CLICKUP_API_KEY;
     const clickup = new Clickup(token);
     var memberProfs = [];
     var advocateProfs = [];
@@ -47,7 +46,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     //     //fetch data for single meetup
-    //     const token = 'pk_54085711_UPTD4BLL3SPMJI2VUD5BYK359WQ0HRQA'; // API access token
+    //     const token = process.env.CLICKUP_API_KEY;
     //     const clickup = new Clickup(token);
 
     //     //profile list id = 146225010
