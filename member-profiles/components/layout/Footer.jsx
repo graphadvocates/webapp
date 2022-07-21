@@ -80,7 +80,7 @@ import {
 
             <Stack align={'flex-start'}>
               <ListHeader>Legal</ListHeader>
-              <Link href={'#'} isExternal>Privacy Policy<ExternalLinkIcon mx='2px' /></Link>
+              <Link href={'docs/v4.Privacy Policy.pdf'} isExternal>Privacy Policy<ExternalLinkIcon mx='2px' /></Link>
               <NextLink href={'#'}>Terms of Service</NextLink>
               <NextLink href={'#'}>Payments</NextLink>
             </Stack>

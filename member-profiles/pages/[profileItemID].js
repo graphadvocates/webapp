@@ -11,7 +11,7 @@ function ProfileItemID(props) {
 
 export async function getStaticPaths() {
     const { Clickup } = require("clickup.js");
-    //const token = process.env.CLICKUP_API_KEY;
+    const token = process.env.CLICKUP_API_KEY;
     const clickup = new Clickup(token);
     var memberProfs = [];
     var advocateProfs = [];

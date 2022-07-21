@@ -32,7 +32,7 @@ const Links = [
             },
             {
                 name: "Advocates",
-                path: "/",
+                path: "/advocates",
             },
         ],
     },
