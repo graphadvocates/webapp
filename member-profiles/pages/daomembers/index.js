@@ -1,8 +1,15 @@
+import { Heading, Text } from "@chakra-ui/react";
+
 import ProfileList from "../../components/ProfileList.jsx";
 
 function DAOmembers(props) {
     return (
         <div>
+            <Heading m={5}>DAO Members</Heading>
+            <Text fontSize="lg">
+                DAO members are here to help. DAO members role is to assist in the
+                onboarding of new advocates and provide support for the growth of web3 and the Graph community.
+            </Text>
             <ProfileList profiles={props.memberProfiles} />
         </div>
     );
@@ -13,7 +20,7 @@ export default DAOmembers;
 //This is server-side code
 export async function getStaticProps(context) {
     const token = process.env.CLICKUP_API_KEY;
-    
+
     const { Clickup } = require("clickup.js");
     const clickup = new Clickup(token);
     var memberProfs = [];
@@ -25,7 +32,6 @@ export async function getStaticProps(context) {
 
         //get member profiles
         var data = await clickup.views.getTasks("13pgd4-7347", 0);
-        // var data = await clickup.lists.getTasks("146225010");
         memberProfs = data.body.tasks;
     } catch (error) {
         console.log("Error::", error.message);

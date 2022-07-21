@@ -1,14 +1,13 @@
 import {
-    Box,
+    Box, Heading,
 } from "@chakra-ui/react";
-import MainNavigation from "../../components/layout/MainNavigation";
 import ProfileList from "../../components/ProfileList";
 
 
 function advocates(props){
     return(
         <Box>
-            <MainNavigation />
+            <Heading m={5}>Advocates</Heading>
             <ProfileList profiles={props.advocateProfiles}/>
         </Box>
     );
@@ -30,9 +29,10 @@ export async function getStaticProps(context) {
       //advocate list id = 13pgd4-7367
       
       //get advocate profiles
-      data = await clickup.lists.getTasks("13pgd4-7367", 0);
+      // TODO: Need to pagify to display all advocates
+      var data = await clickup.views.getTasks("13pgd4-7367", 0);
       advocateProfs = data.body.tasks;
-      
+
     } catch (error) {
         console.log("Error::", error.message);
     }
