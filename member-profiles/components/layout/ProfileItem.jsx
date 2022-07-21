@@ -24,7 +24,7 @@ export default function ProfileItem(props) {
     const router = useRouter();
 
     function showDetailsHandler(){
-        router.push('/' + props.idx);
+        // router.push('/' + props.idx);
     }
 
     return (
@@ -55,7 +55,7 @@ export default function ProfileItem(props) {
                     p={1}
                     pt={2}
                 >
-                    <Heading fontSize={"2xl"} fontFamily={"body"}>
+                    <Heading color={"rgba(12,10,30,1.0)"} fontSize={"2xl"} fontFamily={"body"}>
                         { name_val }
                     </Heading>
 

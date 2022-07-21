@@ -24,11 +24,11 @@ const Links = [
         subLinks: [
             {
                 name: "Roles",
-                path: "../../roles",
+                path: "/roles",
             },
             {
                 name: "Members",
-                path: "/",
+                path: "/daomembers",
             },
             {
                 name: "Advocates",
@@ -38,6 +38,7 @@ const Links = [
     },
     { name: "News", path: "/" },
     { name: "Forum", path: "https://forum.graphadvocates.com/" },
+    { name: "Docs", path: "https://docs.graphadvocates.com/" }
 ];
 
 export default function NavLink() {

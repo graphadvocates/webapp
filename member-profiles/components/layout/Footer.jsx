@@ -11,6 +11,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   import { FaTwitter, FaYoutube, FaInstagram } from '@chakra-ui/react';
+  import { ExternalLinkIcon } from '@chakra-ui/icons';
   import NextLink from 'next/link'
   
   const Logo = (props) => {
@@ -52,9 +53,9 @@ import {
             <Stack align={'flex-start'}>
 
               <ListHeader>DAO</ListHeader>
-              <Link href={'#'}>Overview</Link>
+              <NextLink href={'#'}>Overview</NextLink>
               <Stack direction={'row'} align={'center'} spacing={2}>
-                <Link href={'#'}>Members</Link>
+                <NextLink href={'#'}>Members</NextLink>
                 <Tag
                   size={'sm'}
                   bg={useColorModeValue('green.300', 'green.800')}
@@ -63,31 +64,33 @@ import {
                   New
                 </Tag>
               </Stack>
-              <Link href={'#'}>Voting</Link>
-              <Link href={'#'}>FAQ</Link>
+              <NextLink href={'#'}>Voting</NextLink>
+              <Link href={'https://forms.clickup.com/37437860/f/13pgd4-3987/1HEIW31922QZ1CRS64'} isExternal>Commmunity Grant <ExternalLinkIcon mx='2px' /></Link>
+              <NextLink href={'#'}>FAQ</NextLink>
             </Stack>
 
             <Stack align={'flex-start'}>
               <ListHeader>Advocates</ListHeader>
-              <Link href={'#'}>Overview</Link>
-              <Link href={'#'}>How to Join</Link>
-              <Link href={'#'}>Active Members</Link>
-              <NextLink href={'../../roles'}>Roles</NextLink>
+              <NextLink href={'#'}>Overview</NextLink>
+              <NextLink href={'#'}>How to Join</NextLink>
+              <NextLink href={'#'}>Active Members</NextLink>
+              <NextLink href={'/roles'}>Roles</NextLink>
+              <NextLink href={'#'}>Endorsement Catalog</NextLink>
             </Stack>
 
             <Stack align={'flex-start'}>
               <ListHeader>Legal</ListHeader>
-              <Link href={'#'}>Privacy Policy</Link>
-              <Link href={'#'}>Terms of Service</Link>
-              <Link href={'#'}>Payments</Link>
+              <Link href={'#'} isExternal>Privacy Policy<ExternalLinkIcon mx='2px' /></Link>
+              <NextLink href={'#'}>Terms of Service</NextLink>
+              <NextLink href={'#'}>Payments</NextLink>
             </Stack>
 
             <Stack align={'flex-start'}>
               <ListHeader>Follow Us</ListHeader>
-              <Link href={'#'}>Discord</Link>
-              <Link href={'#'}>Telegram</Link>
-              <Link href={'#'}>Twitter</Link>
-              <Link href={'#'}>Offical Affiliates</Link>
+              <NextLink href={'#'}>Discord</NextLink>
+              <NextLink href={'#'}>Telegram</NextLink>
+              <NextLink href={'#'}>Twitter</NextLink>
+              <NextLink href={'#'}>Offical Affiliates</NextLink>
             </Stack>
 
           </SimpleGrid>

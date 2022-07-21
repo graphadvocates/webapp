@@ -19,9 +19,8 @@ export default advocates;
 
 //This is server-side code
 export async function getStaticProps(context) {
-
+    const token = process.env.CLICKUP_API_KEY;
     const { Clickup } = require("clickup.js");
-    const token = "pk_54085711_UPTD4BLL3SPMJI2VUD5BYK359WQ0HRQA"; //100req/min API access token
     const clickup = new Clickup(token);
     var advocateProfs = [];
   

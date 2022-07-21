@@ -43,7 +43,7 @@ export default function roles() {
 
             <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
                 <RoleCard
-                    src="/assets/EventEvangelist1.png"
+                    src="/assets/EventEvangelist1.PNG"
                     alt="Event evangelist"
                 >
                     Proactively host and participate in The Graph events (online
@@ -89,7 +89,7 @@ export default function roles() {
                 </RoleCard>
 
             </SimpleGrid>
-            
+
         </Container>
     );
 }

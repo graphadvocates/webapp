@@ -16,7 +16,7 @@ import {
     Img,
 } from "@chakra-ui/react";
 import NavLink from "./NavLink";
-import NextLink from "next/link"
+import NextLink from "next/link";
 import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
 
 export default function MainNavigation() {
@@ -30,8 +30,9 @@ export default function MainNavigation() {
                 position: "-webkit-sticky",
                 /* Safari */ position: "sticky",
                 top: "0",
+                zIndex: "1",
             }}
-            opacity={0.8}
+            opacity={0.95}
         >
             <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
                 <IconButton
@@ -44,14 +45,15 @@ export default function MainNavigation() {
 
                 <HStack spacing={8} alignItems={"center"}>
                     <NextLink href="/">
-                        <Img src="assets/graphIcon.svg" />
+                        <Img cursor={"pointer"} src="assets/graphIcon.svg" />
                     </NextLink>
 
                     <NavLink />
                 </HStack>
 
                 <Flex alignItems={"center"}>
-                    <Menu>
+                    <Search2Icon />
+                    {/* <Menu>
                         <MenuButton
                             as={Button}
                             rounded={"full"}
@@ -67,7 +69,7 @@ export default function MainNavigation() {
                             <MenuDivider />
                             <MenuItem>Link 3</MenuItem>
                         </MenuList>
-                    </Menu>
+                    </Menu> */}
                 </Flex>
             </Flex>
 
