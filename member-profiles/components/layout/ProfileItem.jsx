@@ -44,7 +44,7 @@ export default function ProfileItem(props) {
                         borderRadius='full'
                         boxSize='150px'
                         alt="Default Profile Image"
-                        src="assets/defaultProf.png"
+                        src="assets/Logos/defaultProf.png"
                     />
                 </Flex>
                 <Stack

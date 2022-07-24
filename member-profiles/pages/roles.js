@@ -15,12 +15,24 @@ export default function roles() {
         return (
             <Stack
                 overflow={"hidden"}
-                bg="black"
+                bgImage="/assets/Backgrounds/Advocates-01.png"
+                bgSize="cover"
+                bgPosition="center"
                 rounded={"xl"}
-                align={"flex-start"}
+                border="1px"
+                borderColor="gray.7700"
+                align='center'
+                p={3}
             >
-                <Img w={400} src={props.src} alt={props.alt} />
+                <Img
+                    minWidth={100}
+                    maxWidth={155}
+                    w="45%"
+                    src={props.src}
+                    alt={props.alt}
+                />
                 <Box p={3}>
+                    <Heading align='center'>{props.title}</Heading>
                     <p>{props.children}</p>
                 </Box>
             </Stack>
@@ -41,9 +53,11 @@ export default function roles() {
                 </p>
             </Box>
 
+            <Heading mb={2}>Advocate Roles</Heading>
             <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
                 <RoleCard
-                    src="/assets/EventEvangelist1.PNG"
+                    title="Event Evangelist"
+                    src="/assets/Logos/EventEvangelistLogo.png"
                     alt="Event evangelist"
                 >
                     Proactively host and participate in The Graph events (online
@@ -51,7 +65,8 @@ export default function roles() {
                 </RoleCard>
 
                 <RoleCard
-                    src="/assets/ContentCreator1.PNG"
+                    title="Content Creator"
+                    src="/assets/Logos/ContentCreatorLogo.png"
                     alt="Content Creator"
                 >
                     Create original content related to The Graph or web3, such
@@ -60,14 +75,19 @@ export default function roles() {
                 </RoleCard>
 
                 <RoleCard
-                    src="/assets/TextTranslator.PNG"
+                    title="Text Translator"
+                    src="/assets/Logos/TextTranslatorLogo.png"
                     alt="Text Translator"
                 >
                     Translate The Graph documentation or other community
                     materials into other languages
                 </RoleCard>
 
-                <RoleCard src="/assets/TextTranslator.PNG" alt="Community Care">
+                <RoleCard
+                    title="Community Care"
+                    src="/assets/Logos/CommunityCareLogo.png"
+                    alt="Community Care"
+                >
                     Look out for the community, share content, answer community
                     questions, or provide directions to additional resources,
                     posted in The Graph&apos;s Telegram, Forum, Discord, or
@@ -75,7 +95,8 @@ export default function roles() {
                 </RoleCard>
 
                 <RoleCard
-                    src="/assets/TextTranslator.PNG"
+                    title="Technical Teacher"
+                    src="/assets/Logos/TechnicalTeacherLogo.png"
                     alt="Technical Teacher"
                 >
                     Educate others on how to use or build subgraphs, participate
@@ -83,13 +104,15 @@ export default function roles() {
                     they can best contribute to The Graph.
                 </RoleCard>
 
-                <RoleCard src="/assets/TextTranslator.PNG" alt="Web3 Welcomer">
+                <RoleCard
+                    title="Web3 Welcomer"
+                    src="/assets/Logos/Web3WelcomerLogo.png"
+                    alt="Web3 Welcomer"
+                >
                     Facilitate the adoption of The Graph, speak or present at
                     conferences, and introduce people to The Graph and web3
                 </RoleCard>
-
             </SimpleGrid>
-
         </Container>
     );
 }

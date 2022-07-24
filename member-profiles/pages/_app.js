@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <Head>
         <title>AdvocatesDAO</title>
-        <link rel="shortcut icon" href="/assets/favicon.png" />
+        <link rel="shortcut icon" href="/assets/Icons/favicon.png" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <MainNavigation />
