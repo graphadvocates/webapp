@@ -1,17 +1,19 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 import ProfileList from "../../components/ProfileList.jsx";
 
 function DAOmembers(props) {
     return (
-        <div>
-            <Heading m={5}>DAO Members</Heading>
+        <Box m={5}>
+            <Heading>DAO Overview</Heading>
             <Text fontSize="lg">
                 DAO members are here to help. DAO members role is to assist in the
                 onboarding of new advocates and provide support for the growth of web3 and the Graph community.
             </Text>
+
+            <Heading>Members</Heading>
             <ProfileList profiles={props.memberProfiles} />
-        </div>
+        </Box>
     );
 }
 
