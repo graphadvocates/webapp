@@ -17,7 +17,7 @@ import { ChevronDownIcon, ChevronUpIcon, Search2Icon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 
 const Links = [
-    { name: "Dashboard", path: "/" },
+    { name: "Dashboard", path: "/dashboard" },
     {
         name: "Team",
         path: "/",
@@ -36,7 +36,7 @@ const Links = [
             },
         ],
     },
-    { name: "News", path: "/" },
+    { name: "Learn", path: "/learn" },
     { name: "Forum", path: "https://forum.graphadvocates.com/" },
     { name: "Docs", path: "https://docs.graphadvocates.com/" }
 ];

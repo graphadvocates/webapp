@@ -51,10 +51,14 @@ export default function Footer() {
             id="footer"
         >
             <Container as={Stack} maxW={"6xl"} py={10}>
+
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                     <Stack align={"flex-start"}>
+
                         <ListHeader>DAO</ListHeader>
+
                         <NextLink href={"#"}>Overview</NextLink>
+
                         <Stack direction={"row"} align={"center"} spacing={2}>
                             <NextLink href={"#"}>Members</NextLink>
                             <Tag
@@ -66,14 +70,19 @@ export default function Footer() {
                                 New
                             </Tag>
                         </Stack>
-                        <Link
+
+
+                        <NextLink href={"/daoresources"}>Resources</NextLink>
+                        
+                        {/* <Link
                             href={
                                 "https://forms.clickup.com/37437860/f/13pgd4-3987/1HEIW31922QZ1CRS64"
                             }
                             isExternal
                         >
                             Commmunity Grant <ExternalLinkIcon mx="2px" />
-                        </Link>
+                        </Link> */}
+
                         <NextLink href={"#"}>FAQ</NextLink>
                     </Stack>
 

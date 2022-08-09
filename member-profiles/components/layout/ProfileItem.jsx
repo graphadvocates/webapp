@@ -11,12 +11,13 @@ import {
     Text,
     useColorModeValue,
     WrapItem,
+    Box
 } from "@chakra-ui/react";
 
 
 export default function ProfileItem(props) {
-    const nameField = props.prof.custom_fields[0];
-    const discordField = props.prof.custom_fields[6];
+    const nameField = props.prof.custom_fields[1];
+    const discordField = props.prof.custom_fields[7];
     
     const name_val = nameField.hasOwnProperty("value") ? nameField.value : "Graph";
     const dsicordName = discordField.hasOwnProperty("value") ? discordField.value : "Graph";
@@ -28,7 +29,7 @@ export default function ProfileItem(props) {
     }
 
     return (
-        <WrapItem onClick={showDetailsHandler}>
+        <WrapItem>
             <Stack
                 borderWidth="1px"
                 borderRadius="lg"
@@ -149,15 +150,5 @@ export default function ProfileItem(props) {
             </Stack>
         </WrapItem>
     );
-}
-
-function getValue(obj){
-    if(typeof obj !== "undefined"){
-        if(obj.hasOwnProperty("value")){
-            return obj.value;
-        }else{
-            return "Graph";
-        }
-    }
 }
 
