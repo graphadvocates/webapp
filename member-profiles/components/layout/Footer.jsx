@@ -51,16 +51,14 @@ export default function Footer() {
             id="footer"
         >
             <Container as={Stack} maxW={"6xl"} py={10}>
-
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                     <Stack align={"flex-start"}>
-
                         <ListHeader>DAO</ListHeader>
 
-                        <NextLink href={"#"}>Overview</NextLink>
+                        <NextLink href={"/daomembers"}>Overview</NextLink>
 
                         <Stack direction={"row"} align={"center"} spacing={2}>
-                            <NextLink href={"#"}>Members</NextLink>
+                            <NextLink href={"/daomembers"}>Members</NextLink>
                             <Tag
                                 size={"sm"}
                                 bg={useColorModeValue("green.300", "green.800")}
@@ -71,17 +69,7 @@ export default function Footer() {
                             </Tag>
                         </Stack>
 
-
                         <NextLink href={"/daoresources"}>Resources</NextLink>
-                        
-                        {/* <Link
-                            href={
-                                "https://forms.clickup.com/37437860/f/13pgd4-3987/1HEIW31922QZ1CRS64"
-                            }
-                            isExternal
-                        >
-                            Commmunity Grant <ExternalLinkIcon mx="2px" />
-                        </Link> */}
 
                         <NextLink href={"#"}>FAQ</NextLink>
                     </Stack>
@@ -90,7 +78,7 @@ export default function Footer() {
                         <ListHeader>Advocates</ListHeader>
                         <NextLink href={"/roles"}>Overview</NextLink>
                         <NextLink href={"#"}>How to Join</NextLink>
-                        <NextLink href={"#"}>Active Members</NextLink>
+                        <NextLink href={"/advocates"}>Active Members</NextLink>
                         <NextLink href={"/roles"}>Roles</NextLink>
                         <NextLink href={"#"}>Endorsement Catalog</NextLink>
                     </Stack>
@@ -107,10 +95,18 @@ export default function Footer() {
 
                     <Stack align={"flex-start"}>
                         <ListHeader>Follow Us</ListHeader>
-                        <NextLink href={"#"}>Discord</NextLink>
-                        <NextLink href={"#"}>Telegram</NextLink>
-                        <NextLink href={"#"}>Twitter</NextLink>
-                        <NextLink href={"#"}>Offical Affiliates</NextLink>
+                        <NextLink href={"https://discord.gg/2WEsWznrUm"}>
+                            Discord
+                        </NextLink>
+                        <Box>
+                            <Link
+                                href={
+                                    "https://twitter.com/GraphAdvocates?s=20&t=HYyENPIeG4DLfFs6ZFeCDg"
+                                }
+                            >
+                                Twitter
+                            </Link>
+                        </Box>
                     </Stack>
                 </SimpleGrid>
             </Container>
