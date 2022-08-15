@@ -6,9 +6,12 @@ import ProfileList from "../../components/ProfileList.jsx";
 
 function DAOmembers(props) {
 
-    const router = useRouter();
-
     useEffect(() => {
+
+        //TODO: maybe if i move this out of this scope then the event is triggered when the router
+        // object changes - router goes as a dependency
+        const router = useRouter();
+
         // Always do navigations after the first render
         router.push("/daomembers?page=1", undefined, { shallow: true });
     }, []);
