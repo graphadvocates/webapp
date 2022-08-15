@@ -14,7 +14,7 @@ function DAOmembers(props) {
     // }, [router]);
 
     return (
-        <Container minW={"100%"}>
+        <Box>
             <Flex justify="center">
                 <VStack align="flex-start" w="80%">
                     <Heading>DAO Overview</Heading>
@@ -29,7 +29,7 @@ function DAOmembers(props) {
             </Flex>
 
             <ProfileList profiles={props.memberProfiles} />
-        </Container>
+        </Box>
     );
 }
 
