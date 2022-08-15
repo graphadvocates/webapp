@@ -6,12 +6,12 @@ import ProfileList from "../../components/ProfileList.jsx";
 
 function DAOmembers(props) {
 
-    const router = useRouter();
+    // const router = useRouter();
 
-    useEffect(() => {
-        // Always do navigations after the first render
-        router.push("/daomembers?page=1", undefined, { shallow: true });
-    }, [router]);
+    // useEffect(() => {
+    //     // Always do navigations after the first render
+    //     router.push("/daomembers?page=1", undefined, { shallow: true });
+    // }, [router]);
 
     return (
         <Container minW={"100%"}>
