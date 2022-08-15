@@ -1,10 +1,20 @@
 import { Box, Heading, Text, Flex, VStack, Container } from "@chakra-ui/react";
+import { useRouter } from "next/router.js";
+import { useEffect } from "react";
 
 import ProfileList from "../../components/ProfileList.jsx";
 
 function DAOmembers(props) {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        // Always do navigations after the first render
+        router.push("/daomembers?page=1", undefined, { shallow: true });
+    }, []);
+
     return (
-        <Container minW={"100%"} >
+        <Container minW={"100%"}>
             <Flex justify="center">
                 <VStack align="flex-start" w="80%">
                     <Heading>DAO Overview</Heading>
@@ -14,7 +24,7 @@ function DAOmembers(props) {
                         support for the growth of web3 and the Graph community.
                     </Text>
 
-                    <Heading>Members({props.memberProfiles.length})</Heading>
+                    <Heading>Members</Heading>
                 </VStack>
             </Flex>
 

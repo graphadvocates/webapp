@@ -16,14 +16,27 @@ import {
 
 
 export default function ProfileItem(props) {
-    const nameField = props.prof.custom_fields[1];
-    const discordField = props.prof.custom_fields[7];
+
+    console.log(props.prof.custom_fields);
+
+    //Find the correct values in the custom_fields objects for this Item display
+    // - This seems a little ineffecient but works for now
+    const nameField = props.prof.custom_fields.find((field) => {
+        return field.id === "b8bca308-5797-4fc7-9038-0dcec7851b39";
+    })
+    const discordField = props.prof.custom_fields.find((field) => {
+        return field.id === "760ac8c2-c4a2-4d75-868c-b41575373ee3";
+    })
+    const imgURL = props.prof.custom_fields.find((field) => {
+        return field.id === "d2d56a31-fe9f-428b-9430-f3318372cfc5";
+    })
     
+    //Check value of field
     const name_val = nameField.hasOwnProperty("value") ? nameField.value : "Graph";
     const dsicordName = discordField.hasOwnProperty("value") ? discordField.value : "Graph";
+    const imgURL_val = imgURL.hasOwnProperty("value") ? imgURL.value : "assets/Logos/defaultProf.png";
 
     const router = useRouter();
-
     function showDetailsHandler(){
         // router.push('/' + props.idx);
     }
@@ -33,8 +46,8 @@ export default function ProfileItem(props) {
             <Stack
                 borderWidth="1px"
                 borderRadius="lg"
-                w={{ sm: "100%", md: "400px" }}
-                height={{ sm: "476px", md: "20rem" }}
+                w={{ sm: "100%", md: "250px" }}
+                height={{ sm: "255px", md: "16rem" }}
                 direction={{ base: "column", md: "column" }}
                 bg={useColorModeValue("white", "gray.900")}
                 boxShadow={"2xl"}
@@ -43,9 +56,9 @@ export default function ProfileItem(props) {
                 <Flex justifyContent="center" flex={1}>
                     <Image
                         borderRadius='full'
-                        boxSize='150px'
-                        alt="Default Profile Image"
-                        src="assets/Logos/defaultProf.png"
+                        boxSize='100px'
+                        alt="Profile Image"
+                        src={imgURL_val}
                     />
                 </Flex>
                 <Stack
@@ -53,14 +66,12 @@ export default function ProfileItem(props) {
                     flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-                    p={1}
-                    pt={2}
                 >
-                    <Heading color={"rgba(12,10,30,1.0)"} fontSize={"2xl"} fontFamily={"body"}>
+                    <Heading color={"rgba(12,10,30,1.0)"} fontSize={"2xl"} fontFamily={"body"} noOfLines={1}>
                         { name_val }
                     </Heading>
 
-                    <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
+                    <Text fontWeight={600} color={"gray.500"} size="sm" mb={4} noOfLines={1}>
                         { dsicordName }
                     </Text>
                     
@@ -99,14 +110,7 @@ export default function ProfileItem(props) {
                         >
                             #photography
                         </Badge>
-                        <Badge
-                            px={2}
-                            py={1}
-                            bg={useColorModeValue("gray.50", "gray.800")}
-                            fontWeight={"400"}
-                        >
-                            #music
-                        </Badge>
+
                     </Stack> */}
 
                     <Stack
