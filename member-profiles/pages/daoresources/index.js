@@ -13,14 +13,14 @@ import {
     TabPanels,
     Tabs,
 } from "@chakra-ui/react";
-import { useState } from "react";
+//import { useState } from "react";
 
 export default function daoresources() {
-    const [toggleState, setToggleState] = useState(1);
+    // const [toggleState, setToggleState] = useState(1);
 
-    const toggleTab = (index) => {
-        setToggleState(index);
-    };
+    // const toggleTab = (index) => {
+    //     setToggleState(index);
+    // };
 
     return (
         <Box>
