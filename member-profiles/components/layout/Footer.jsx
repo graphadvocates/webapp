@@ -69,7 +69,7 @@ export default function Footer() {
                             </Tag>
                         </Stack>
 
-                        <NextLink href={"/daoresources"}>Resources</NextLink>
+                        {/* <NextLink href={"/daoresources"}>Resources</NextLink> */}
 
                         <NextLink href={"#"}>FAQ</NextLink>
                     </Stack>
