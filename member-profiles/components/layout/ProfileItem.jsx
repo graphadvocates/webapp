@@ -17,8 +17,6 @@ import {
 
 export default function ProfileItem(props) {
 
-    console.log(props.prof.custom_fields);
-
     //Find the correct values in the custom_fields objects for this Item display
     // - This seems a little ineffecient but works for now
     const nameField = props.prof.custom_fields.find((field) => {
