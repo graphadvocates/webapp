@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video.js with Livepeer </title>
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+</head>
+
+<body>
+    <video-js id="livepeer-sample-videojs-player" width=960 height=540 class="vjs-default-skin" controls>
+        <source src="https://livepeercdn.com/hls/e5b77b2dp9hudhri/index.m3u8" type="application/x-mpegURL">
+    </video-js>
+
+</body>
+<script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming@2.14.2/dist/videojs-http-streaming.min.js"></script>
+ <script src="index.js"></script>
+</html>
