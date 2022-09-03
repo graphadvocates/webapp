@@ -16,37 +16,12 @@ import {
 import { ChevronDownIcon, ChevronUpIcon, Search2Icon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 
-const Links = [
-    { name: "Dashboard", path: "/dashboard" },
-    {
-        name: "Team",
-        path: "/",
-        subLinks: [
-            {
-                name: "Roles",
-                path: "/roles",
-            },
-            {
-                name: "Members",
-                path: "/daomembers",
-            },
-            {
-                name: "Advocates",
-                path: "/advocates",
-            },
-        ],
-    },
-    { name: "Learn", path: "/learn" },
-    { name: "Forum", path: "https://forum.graphadvocates.com/" },
-    { name: "Docs", path: "https://docs.graphadvocates.com/" }
-];
-
-export default function NavLink() {
+export default function NavLink(props) {
     const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
     return (
         <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            {Links.map((link, index) => (
+            {props.LinkList.map((link, index) => (
                 <Box
                     px={2}
                     py={1}

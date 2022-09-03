@@ -13,6 +13,7 @@ import {
     useColorModeValue,
     Stack,
     Img,
+    Text,
 } from "@chakra-ui/react";
 import NavLink from "./NavLink";
 import NextLink from "next/link";
@@ -20,6 +21,30 @@ import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
 
 export default function MainNavigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const Links = [
+        { name: "Dashboard", path: "/dashboard" },
+        // {
+        //     name: "Team",
+        //     path: "/",
+        //     subLinks: [
+        //         {
+        //             name: "Roles",
+        //             path: "/roles",
+        //         },
+        //         {
+        //             name: "Members",
+        //             path: "/daomembers",
+        //         },
+        //         {
+        //             name: "Advocates",
+        //             path: "/advocates",
+        //         },
+        //     ],
+        // },
+        { name: "Forum", path: "https://forum.graphadvocates.com/" },
+        { name: "Docs", path: "https://docs.graphadvocates.com/" },
+    ];
 
     return (
         <Box
@@ -34,20 +59,32 @@ export default function MainNavigation() {
             opacity={0.95}
         >
             <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-                <IconButton
-                    size={"md"}
-                    icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                    aria-label={"Open Menu"}
-                    display={{ md: "none" }}
-                    onClick={isOpen ? onClose : onOpen}
-                />
+                <Menu>
+                    <MenuButton
+                        as={IconButton}
+                        aria-label="Options"
+                        icon={<HamburgerIcon />}
+                        variant="outline"
+                        // size={"md"}
+                        // icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                        // aria-label={"Open Menu"}
+                        display={{ md: "none" }}
+                        //onClick={isOpen ? onClose : onOpen}
+                    ></MenuButton>
+                    <MenuList>
+                        <Text>test</Text>
+                    </MenuList>
+                </Menu>
 
                 <HStack spacing={8} alignItems={"center"}>
                     <NextLink href="/">
-                        <Img cursor={"pointer"} src="assets/Icons/graphIcon.svg" />
+                        <Img
+                            cursor={"pointer"}
+                            src="assets/Icons/graphIcon.svg"
+                        />
                     </NextLink>
 
-                    <NavLink />
+                    <NavLink LinkList={Links} />
                 </HStack>
 
                 <Flex alignItems={"center"}>
@@ -72,15 +109,15 @@ export default function MainNavigation() {
                 </Flex>
             </Flex>
 
-            {isOpen ? (
+            {/* {isOpen ? (
                 <Box pb={4} display={{ md: "none" }}>
                     <Stack as={"nav"} spacing={4}>
-                        {/* {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))} */}
+                        {Links.map((link, idx) => (
+                            <NavLink key={idx}>{link}</NavLink>
+                        ))}
                     </Stack>
                 </Box>
-            ) : null}
+            ) : null} */}
         </Box>
     );
 }

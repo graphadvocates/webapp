@@ -10,8 +10,7 @@ import {
     SimpleGrid,
 } from "@chakra-ui/react";
 
-export default function roles() {
-    
+export default function RolesComp() {
     const RoleCard = (props) => {
         return (
             <Stack
@@ -21,8 +20,8 @@ export default function roles() {
                 bgPosition="center"
                 rounded={"xl"}
                 border="1px"
-                borderColor="gray.7700"
-                align='center'
+                borderColor="gray.700"
+                align="center"
                 p={3}
             >
                 <Img
@@ -33,7 +32,7 @@ export default function roles() {
                     alt={props.alt}
                 />
                 <Box p={3}>
-                    <Heading align='center'>{props.title}</Heading>
+                    <Heading align="center">{props.title}</Heading>
                     <p>{props.children}</p>
                 </Box>
             </Stack>
@@ -41,21 +40,12 @@ export default function roles() {
     };
 
     return (
-        <Container p={5} maxW={"container.xl"}>
-            <Box mb={10}>
-                <Heading size={"xl"}>Overview</Heading>
-                <p>
-                    Becoming an Advocate offers flexibility: Advocates can focus
-                    on different roles in the community based on their interests
-                    and abilities. Echoing The Graph community&apos;s vision of
-                    an internet without gatekeepers, Advocates of all walks of
-                    life are encouraged to pursue what motivates them. There are
-                    currently six different Advocate roles to embody:
-                </p>
-            </Box>
+        <Container
+            p={5}
+            maxW={"container.xl"}
+        >
 
-            <Heading mb={2}>Advocate Roles</Heading>
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
+            <SimpleGrid columns={{ base: 1, sm: 1, md: 3 }} spacing={[4,6]}>
                 <RoleCard
                     title="Event Evangelist"
                     src="/assets/Logos/EventEvangelistLogo.png"

@@ -7,12 +7,14 @@ import {
     StatLabel,
     StatNumber,
     useColorModeValue,
+    VStack,
 } from "@chakra-ui/react";
 // import { BsPerson } from "react-icons/bs";
 // import { FiServer } from "react-icons/fi";
 // import { GoLocation } from "react-icons/go";
 
 export default function BasicStatistics() {
+
     function StatsCard(props) {
         const { title, stat, icon } = props;
 
@@ -47,7 +49,7 @@ export default function BasicStatistics() {
     }
 
     return (
-        <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} m={4}>
+        <VStack mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} m={4}>
 
             <chakra.h1
                 textAlign={"center"}
@@ -78,6 +80,6 @@ export default function BasicStatistics() {
                     // icon={<GoLocation size={"3em"} />}
                 />
             </SimpleGrid>
-        </Box>
+        </VStack>
     );
 }

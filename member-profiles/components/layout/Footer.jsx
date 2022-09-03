@@ -53,9 +53,8 @@ export default function Footer() {
             <Container as={Stack} maxW={"6xl"} py={10}>
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                     <Stack align={"flex-start"}>
-                        <ListHeader>DAO</ListHeader>
 
-                        <NextLink href={"/daomembers"}>Overview</NextLink>
+                        <ListHeader>DAO</ListHeader>
 
                         <Stack direction={"row"} align={"center"} spacing={2}>
                             <NextLink href={"/daomembers"}>Members</NextLink>
@@ -76,10 +75,8 @@ export default function Footer() {
 
                     <Stack align={"flex-start"}>
                         <ListHeader>Advocates</ListHeader>
-                        <NextLink href={"/roles"}>Overview</NextLink>
                         <NextLink href={"#"}>How to Join</NextLink>
                         <NextLink href={"/advocates"}>Active Members</NextLink>
-                        <NextLink href={"/roles"}>Roles</NextLink>
                         <NextLink href={"#"}>Endorsement Catalog</NextLink>
                     </Stack>
 
@@ -89,8 +86,6 @@ export default function Footer() {
                             Privacy Policy
                             <ExternalLinkIcon mx="2px" />
                         </Link>
-                        <NextLink href={"#"}>Terms of Service</NextLink>
-                        <NextLink href={"#"}>Payments</NextLink>
                     </Stack>
 
                     <Stack align={"flex-start"}>
