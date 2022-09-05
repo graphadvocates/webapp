@@ -25,7 +25,7 @@ export default function Home() {
             p={5}
         >
             <VStack maxW={"1200px"}>
-                <Box color={"whiteAlpha.900"} m={2} pb={6}>
+                <Box color={"whiteAlpha.900"} m={2} pb={20}>
                     <Text textStyle="h2" align={"center"}>
                         Graph
                     </Text>
@@ -39,7 +39,9 @@ export default function Home() {
                     borderBottom={"4px"}
                     borderRadius={"xl"}
                     borderColor={"blue.200"}
-                    p={"5"}
+                    p={"8"}
+                    pt={"14"}
+                    pb={"14"}
                 >
                     <Text align={"center"} textStyle={"h3"}>
                         Advocates focus on different roles in the community
@@ -61,15 +63,16 @@ export default function Home() {
                         How It Works
                     </Text>
                     <Image
-                        pb={10}
+                        pb={20}
                         alt="advocateDAO banner"
                         src="/assets/InfoGraphics/AdvocateDAO@2x2.png"
                     />
                 </VStack>
 
                 <VStack
-                    p={6}
-                    m={"10"}
+                    p={"8"}
+                    pt={"14"}
+                    pb={"14"}
                     borderTop={"4px"}
                     borderBottom={"4px"}
                     borderRadius={"xl"}
@@ -82,7 +85,7 @@ export default function Home() {
                     </Text>
                 </VStack>
 
-                <Box pt={10} mb={10}>
+                <Box pt={28} mb={10}>
                     <Text textStyle="h2">Advocate Roles</Text>
                 </Box>
 

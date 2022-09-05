@@ -44,6 +44,7 @@ export default function MainNavigation() {
         // },
         { name: "Forum", path: "https://forum.graphadvocates.com/" },
         { name: "Docs", path: "https://docs.graphadvocates.com/" },
+        { name: "Live", path: "/live" }
     ];
 
     return (
