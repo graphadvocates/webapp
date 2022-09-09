@@ -8,6 +8,7 @@ import {
     StatNumber,
     useColorModeValue,
     VStack,
+    Text
 } from "@chakra-ui/react";
 // import { BsPerson } from "react-icons/bs";
 // import { FiServer } from "react-icons/fi";
@@ -51,16 +52,13 @@ export default function BasicStatistics() {
     return (
         <VStack mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} m={4}>
 
-            <chakra.h1
-                textAlign={"center"}
-                fontSize={"4xl"}
-                py={10}
-                fontWeight={"bold"}
-            >
-                DAO Stats
-            </chakra.h1>
+            <Text textStyle={"h2"} p={10}>
+                Advocate Statistics
+            </Text>
 
-            <SimpleGrid
+            <Text textStyle={"h3"} p={6}>~Coming Soon~</Text>
+
+            {/* <SimpleGrid
                 columns={{ base: 1, md: 3 }}
                 spacing={{ base: 5, lg: 8 }}
             >
@@ -79,7 +77,7 @@ export default function BasicStatistics() {
                     stat={"7"}
                     // icon={<GoLocation size={"3em"} />}
                 />
-            </SimpleGrid>
+            </SimpleGrid> */}
         </VStack>
     );
 }

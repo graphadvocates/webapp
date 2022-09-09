@@ -6,6 +6,8 @@ const theme = extendTheme({
         global: (props) => ({
             body: {
                 bg: mode("rgba(12,10,29,1.0)", "blue.200")(props),
+                bgImage:"/assets/Backgrounds/bg-hero.jpg",
+                bgRepeat:"no-repeat",
                 color: "gray.200",
             },
         }),

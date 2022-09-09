@@ -18,12 +18,7 @@ import RolesComp from "../components/RolesComp";
 
 export default function Home() {
     return (
-        <Flex
-            justifyContent={"center"}
-            bgImage="/assets/Backgrounds/bg-hero.jpg"
-            bgRepeat="no-repeat"
-            p={5}
-        >
+        <Flex justifyContent={"center"} p={5}>
             <VStack maxW={"1200px"}>
                 <Box color={"whiteAlpha.900"} m={2} pb={20}>
                     <Text textStyle="h2" align={"center"}>
@@ -41,17 +36,21 @@ export default function Home() {
                     borderColor={"blue.200"}
                     p={"8"}
                     pt={"14"}
-                    pb={"14"}
+                    pb={"8"}
                 >
                     <Text align={"center"} textStyle={"h3"}>
                         Advocates focus on different roles in the community
                         based on their interests and abilities.
                     </Text>
-                    <Link href="https://forms.clickup.com/37437860/f/13pgd4-4007/RXO7DCQPT5XCA8X7R7" isExternal>
+                    <Link
+                        href="https://forms.clickup.com/37437860/f/13pgd4-4007/RXO7DCQPT5XCA8X7R7"
+                        isExternal
+                    >
                         <Button
                             border="2px"
                             borderColor="blue.200"
                             colorScheme={"blue"}
+                            m={8}
                         >
                             Apply
                         </Button>
@@ -90,6 +89,37 @@ export default function Home() {
                 </Box>
 
                 <RolesComp />
+
+                <VStack
+                    p={"8"}
+                    pt={"14"}
+                    pb={"14"}
+                    borderTop={"4px"}
+                    borderBottom={"4px"}
+                    borderRadius={"xl"}
+                    borderColor={"blue.200"}
+                >
+                    <Text textStyle="h2">Community Grants</Text>
+                    <Text p="5" textStyle="h3">
+                        Want to support the Graph community? We want to support
+                        you! Apply for a community grant today!
+                    </Text>
+
+                    <Link
+                        href="https://forms.clickup.com/37437860/f/13pgd4-3987/1HEIW31922QZ1CRS64"
+                        isExternal
+                    >
+                        <Button
+                            border="2px"
+                            borderColor="blue.200"
+                            colorScheme={"blue"}
+                            m={8}
+                        >
+                            Apply for Grant
+                        </Button>
+                    </Link>
+
+                </VStack>
             </VStack>
         </Flex>
     );

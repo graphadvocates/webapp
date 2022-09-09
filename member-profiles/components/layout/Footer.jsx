@@ -76,7 +76,6 @@ export default function Footer() {
                     <Stack align={"flex-start"}>
                         <ListHeader>Advocates</ListHeader>
                         <NextLink href={"#"}>How to Join</NextLink>
-                        <NextLink href={"/advocates"}>Active Members</NextLink>
                         <NextLink href={"#"}>Endorsement Catalog</NextLink>
                     </Stack>
 

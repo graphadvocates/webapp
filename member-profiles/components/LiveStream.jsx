@@ -1,39 +1,64 @@
-import { Flex } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
-import videojs from "video.js";
-import "video.js/dist/video-js.css";
+import React, { useEffect, useRef } from "react";
+import Hls from "hls.js";
+import { Flex, VStack, Text, Box, Divider } from "@chakra-ui/react";
 
 export default function LiveStream() {
     const videoRef = useRef(null);
+    const src = "https://livepeercdn.com/hls/53e690ub3ujdh8cn/index.m3u8";
 
-    // useEffect(() => {
-    //     if (videoRef.current) {
-    //         videojs(videoRef.current, {
-    //             sources: [
-    //                 {
-    //                     src: "rtmp://rtmp.livepeer.com/live",
-    //                     type: "application/x-mpegURL",
-    //                 },
-    //             ],
-    //         });
-    //     }
-    // });
+    useEffect(() => {
+        let hls;
+        if (videoRef.current) {
+            const video = videoRef.current;
+
+            if (video.canPlayType("application/vnd.apple.mpegurl")) {
+                // Some browers (safari and ie edge) support HLS natively
+                video.src = src;
+            } else if (Hls.isSupported()) {
+                // This will run in all other modern browsers
+                hls = new Hls();
+                hls.loadSource(src);
+                hls.attachMedia(video);
+            } else {
+                console.error(
+                    "This is a legacy browser that doesn't support MSE"
+                );
+            }
+        }
+
+        return () => {
+            if (hls) {
+                hls.destroy();
+            }
+        };
+    }, [videoRef]);
 
     return (
-        <div>
-            {/* <video
-                controls
-                ref={videoRef}
-                className="video-js vjs-big-play-centered"
-            />
+        <Flex justifyContent={"center"}>
+            <VStack p={"10"}>
+                <Box p={10}>
+                    <Text textStyle={"h2"} as="u">
+                        Enjoy our Live Stream!
+                    </Text>
+                    <Text p={1}>Powered by LivePeer</Text>
+                </Box>
 
-            <iframe
-                src="https://lvpr.tv?v=53e6-w2yw-35pf-ko4x"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; encrypted-media; picture-in-picture"
-                sandbox="allow-scripts"
-            ></iframe> */}
-        </div>
+                <Box
+                    border={"4px"}
+                    borderRadius={"xl"}
+                    borderColor={"blue.200"}
+                    w={"100%"}
+                    m={36}
+                >
+                    <video controls ref={videoRef} style={{ width: "100%" }} />
+                </Box>
+
+                <Divider p={"10"} />
+
+                <Text textStyle={"h3"} p={10}>
+                    Previous Streams
+                </Text>
+            </VStack>
+        </Flex>
     );
 }
