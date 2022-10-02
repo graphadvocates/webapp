@@ -52,12 +52,6 @@ export default function LiveStream() {
                 >
                     <video controls ref={videoRef} style={{ width: "100%" }} />
                 </Box>
-
-                <Divider p={"10"} />
-
-                <Text textStyle={"h3"} p={10}>
-                    Previous Streams
-                </Text>
             </VStack>
         </Flex>
     );

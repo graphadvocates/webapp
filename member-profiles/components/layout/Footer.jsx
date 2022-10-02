@@ -89,18 +89,15 @@ export default function Footer() {
 
                     <Stack align={"flex-start"}>
                         <ListHeader>Follow Us</ListHeader>
-                        <NextLink href={"https://discord.gg/2WEsWznrUm"}>
+                        <Link href={"https://discord.gg/2WEsWznrUm"} isExternal>
                             Discord
-                        </NextLink>
-                        <Box>
-                            <Link
-                                href={
-                                    "https://twitter.com/GraphAdvocates?s=20&t=HYyENPIeG4DLfFs6ZFeCDg"
-                                }
-                            >
-                                Twitter
-                            </Link>
-                        </Box>
+                        </Link>
+                        <Link href="https://www.youtube.com/channel/UCps-lu58cUfdcZoa8VWsfEw" isExternal>
+                            YouTube
+                        </Link>
+                        <Link href="https://twitter.com/GraphAdvocates?s=20&t=HYyENPIeG4DLfFs6ZFeCDg" isExternal>
+                            Twitter
+                        </Link>
                     </Stack>
                 </SimpleGrid>
             </Container>
