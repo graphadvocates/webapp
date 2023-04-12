@@ -17,6 +17,7 @@
     "@fontsource/raleway": "^4.5.10",
     "clickup.js": "^3.0.2",
     "framer-motion": "^6",
+    "framer-motion-carousel": "^2.0.3",
     "hls.js": "^1.2.1",
     "next": "12.1.6",
     "react": "18.1.0",
