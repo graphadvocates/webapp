@@ -16,6 +16,7 @@ import {
 
 import RolesComp from '../components/RolesComp';
 import Carousel from 'framer-motion-carousel';
+import AdvocateSpotlight from '../components/AdvocateSpotlight';
 
 export default function Home() {
   return (
@@ -50,35 +51,16 @@ export default function Home() {
         </Carousel>
       </Box>
 
-      <VStack
-        borderTop={'4px'}
-        borderBottom={'4px'}
-        borderRadius={'xl'}
-        borderColor={'blue.200'}
-        p={'8'}
-        pt={'14'}
-        pb={'8'}
-      >
-        <Text align={'center'} textStyle={'h3'}>
-          Advocates focus on different roles in the community based on their
-          interests and abilities.
-        </Text>
-        <Link
-          href="https://forms.clickup.com/37437860/f/13pgd4-4007/RXO7DCQPT5XCA8X7R7"
-          isExternal
-        >
-          <Button
-            border="2px"
-            borderColor="blue.200"
-            colorScheme={'blue'}
-            m={8}
-          >
-            Apply
-          </Button>
-        </Link>
-      </VStack>
+      {/* <Divider /> */}
+      <AdvocateSpotlight />
 
-      <VStack>
+      <Box mb={10}>
+        <Text textStyle="h2">Advocate Roles</Text>
+      </Box>
+
+      <RolesComp />
+
+      {/* <VStack>
         <Text pt={20} mb={'-6'} textStyle="h2">
           How It Works
         </Text>
@@ -87,7 +69,7 @@ export default function Home() {
           alt="advocateDAO banner"
           src="/assets/InfoGraphics/AdvocateDAO@2x2.png"
         />
-      </VStack>
+      </VStack> */}
 
       <VStack
         p={'8'}

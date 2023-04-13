@@ -1,109 +1,122 @@
 import {
-    Box,
-    Heading,
-    HStack,
-    useColorModeValue,
-    Img,
-    Center,
-    Stack,
-    Container,
-    SimpleGrid,
-} from "@chakra-ui/react";
+  Box,
+  Heading,
+  HStack,
+  useColorModeValue,
+  Img,
+  Center,
+  Stack,
+  Container,
+  Text,
+} from '@chakra-ui/react';
+
+import { motion } from 'framer-motion';
+
+const roles = [
+  {
+    title: 'Event Evangelist',
+    src: '/assets/Logos/EventEvangelistLogo.png',
+    alt: 'Event evangelist',
+    desc: 'Proactively host and participate in The Graph events (online or in-person), and attend regional industry events.',
+  },
+  {
+    title: 'Content Creator',
+    src: '/assets/Logos/ContentCreatorLogo.png',
+    alt: 'Content Creator',
+    desc: 'Create original content related to The Graph or web3, such as articles, video, infographics, memes or GIFs, how-to guides, animations, and many other creative materials.',
+  },
+  {
+    title: 'Text Translator',
+    src: '/assets/Logos/TextTranslatorLogo.png',
+    alt: 'Text Translator',
+    desc: 'Translate The Graph documentation or other community materials into other languages',
+  },
+  {
+    title: 'Community Care',
+    src: '/assets/Logos/CommunityCareLogo.png',
+    alt: 'Community Care',
+    desc: "Look out for the community, share content, answer community questions, or provide directions to additional resources, posted in The Graph's Telegram, Forum, Discord, or Reddit channels.",
+  },
+  {
+    title: 'Technical Teacher',
+    src: '/assets/Logos/TechnicalTeacherLogo.png',
+    alt: 'Technical Teacher',
+    desc: 'Educate others on how to use or build subgraphs, participate in The Graph Network, and coach community members on how they can best contribute to The Graph.',
+  },
+  {
+    title: 'Web3 Welcomer*',
+    src: '/assets/Logos/Web3WelcomerLogo.png',
+    alt: 'Web3 Welcomer',
+    desc: 'Facilitate the adoption of The Graph, speak or present at conferences, and introduce people to The Graph and web3. *Legacy Role',
+  },
+];
 
 export default function RolesComp() {
-    const RoleCard = (props) => {
-        return (
-            <Stack
-                overflow={"hidden"}
-                bgImage="/assets/Backgrounds/Advocates-01.png"
-                bgSize="cover"
-                bgPosition="center"
-                rounded={"xl"}
-                border="1px"
-                borderColor="gray.700"
-                align="center"
-                p={3}
-            >
-                <Img
-                    minWidth={100}
-                    maxWidth={155}
-                    w="45%"
-                    src={props.src}
-                    alt={props.alt}
-                />
-                <Box p={3}>
-                    <Heading align="center">{props.title}</Heading>
-                    <p>{props.children}</p>
-                </Box>
-            </Stack>
-        );
-    };
-
+  const RoleCard = (props) => {
     return (
-        <Container
-            p={5}
-            maxW={"container.xl"}
-        >
-
-            <SimpleGrid columns={{ base: 1, sm: 1, md: 3 }} spacing={[4,6]}>
-                <RoleCard
-                    title="Event Evangelist"
-                    src="/assets/Logos/EventEvangelistLogo.png"
-                    alt="Event evangelist"
-                >
-                    Proactively host and participate in The Graph events (online
-                    or in-person), and attend regional industry events.
-                </RoleCard>
-
-                <RoleCard
-                    title="Content Creator"
-                    src="/assets/Logos/ContentCreatorLogo.png"
-                    alt="Content Creator"
-                >
-                    Create original content related to The Graph or web3, such
-                    as articles, video, infographics, memes or GIFs, how-to
-                    guides, animations, and many other creative materials.
-                </RoleCard>
-
-                <RoleCard
-                    title="Text Translator"
-                    src="/assets/Logos/TextTranslatorLogo.png"
-                    alt="Text Translator"
-                >
-                    Translate The Graph documentation or other community
-                    materials into other languages
-                </RoleCard>
-
-                <RoleCard
-                    title="Community Care"
-                    src="/assets/Logos/CommunityCareLogo.png"
-                    alt="Community Care"
-                >
-                    Look out for the community, share content, answer community
-                    questions, or provide directions to additional resources,
-                    posted in The Graph&apos;s Telegram, Forum, Discord, or
-                    Reddit channels.
-                </RoleCard>
-
-                <RoleCard
-                    title="Technical Teacher"
-                    src="/assets/Logos/TechnicalTeacherLogo.png"
-                    alt="Technical Teacher"
-                >
-                    Educate others on how to use or build subgraphs, participate
-                    in The Graph Network, and coach community members on how
-                    they can best contribute to The Graph.
-                </RoleCard>
-
-                <RoleCard
-                    title="Web3 Welcomer"
-                    src="/assets/Logos/Web3WelcomerLogo.png"
-                    alt="Web3 Welcomer"
-                >
-                    Facilitate the adoption of The Graph, speak or present at
-                    conferences, and introduce people to The Graph and web3
-                </RoleCard>
-            </SimpleGrid>
-        </Container>
+      <Stack
+        overflow={'hidden'}
+        bgImage="/assets/Backgrounds/Advocates-01.png"
+        boxShadow="0 0 15px rgba(0, 0, 0, 0.9)"
+        bgSize="cover"
+        bgPosition="center"
+        rounded={'xl'}
+        maxW={300}
+        h={400}
+      >
+        <Img p={3} w={100} src={props.src} alt={props.alt} />
+        <Box p={3}>
+          <Heading align="center">{props.title}</Heading>
+          <Text fontWeight={200} noOfLines={5}>
+            {props.children}
+          </Text>
+        </Box>
+      </Stack>
     );
+  };
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { x: 800, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
+  const RolesMotion = () => (
+    <motion.ul
+      className="container"
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.8 }}
+    >
+      {roles.map((role, index) => (
+        <motion.li
+          key={index}
+          className="item"
+          variants={item}
+          style={{ display: 'inline-block', margin: '25px' }}
+        >
+          <RoleCard title={role.title} src={role.src} alt={role.alt}>
+            {role.desc}
+          </RoleCard>
+        </motion.li>
+      ))}
+    </motion.ul>
+  );
+
+  return <RolesMotion />;
 }
