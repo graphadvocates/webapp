@@ -43,12 +43,12 @@ const roles = [
     alt: 'Technical Teacher',
     desc: 'Educate others on how to use or build subgraphs, participate in The Graph Network, and coach community members on how they can best contribute to The Graph.',
   },
-  {
-    title: 'Web3 Welcomer*',
-    src: '/assets/Logos/Web3WelcomerLogo.png',
-    alt: 'Web3 Welcomer',
-    desc: 'Facilitate the adoption of The Graph, speak or present at conferences, and introduce people to The Graph and web3. *Legacy Role',
-  },
+  //   {
+  //     title: 'Web3 Welcomer*',
+  //     src: '/assets/Logos/Web3WelcomerLogo.png',
+  //     alt: 'Web3 Welcomer',
+  //     desc: 'Facilitate the adoption of The Graph, speak or present at conferences, and introduce people to The Graph and web3. *Legacy Role',
+  //   },
 ];
 
 export default function RolesComp() {
@@ -61,12 +61,19 @@ export default function RolesComp() {
         bgSize="cover"
         bgPosition="center"
         rounded={'xl'}
-        maxW={300}
-        h={400}
+        maxW={200}
+        h={300}
       >
         <Img p={3} w={100} src={props.src} alt={props.alt} />
         <Box p={3}>
-          <Heading align="center">{props.title}</Heading>
+          <Text
+            as={'b'}
+            fontFamily={'Open Sans'}
+            fontWeight={'extrabold'}
+            align="center"
+          >
+            {props.title}
+          </Text>
           <Text fontWeight={200} noOfLines={5}>
             {props.children}
           </Text>

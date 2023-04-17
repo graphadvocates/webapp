@@ -17,82 +17,98 @@ import {
 import RolesComp from '../components/RolesComp';
 import Carousel from 'framer-motion-carousel';
 import AdvocateSpotlight from '../components/AdvocateSpotlight';
+import CarouselComp from '../components/UpcomingEvents';
+import { google } from 'googleapis';
 
-export default function Home() {
+export default function Home(props) {
   return (
-    // <Flex justifyContent={'center'} p={5}>
-    <VStack border={'1px'} borderColor={'green.300'}>
-      <Box color={'whiteAlpha.900'} m={2} p={4}>
-        <Text textStyle="h2" align={'center'}>
-          Graph
-        </Text>
+    <>
+      <Flex justify={'center'} color={'whiteAlpha.900'} m={2} p={4}>
+        <Text textStyle="h1">Graph</Text>
         <Text fontWeight={800} textStyle="h1" fontFamily={'heading'}>
           Advocates
         </Text>
-      </Box>
+      </Flex>
 
-      <Box
-        maxW={1200}
-        bg={'blackAlpha.400'}
-        borderRadius={'3xl'}
-        overflow={'hidden'}
-      >
-        <Carousel interval={3000}>
-          {[1, 2, 3, 4].map((item, i) => (
-            <Flex key={i} justify={'center'}>
-              <Image
-                draggable={'false'}
-                src={'/assets/LandingCarousel/' + item + '.jpg'}
-                alt="pic"
-                maxH={600}
-              />
-            </Flex>
-          ))}
-        </Carousel>
-      </Box>
+      <Flex justify={'center'} mb={100}>
+        <Box
+          maxW={1200}
+          bg={'blackAlpha.400'}
+          borderRadius={'3xl'}
+          overflow={'hidden'}
+        >
+          <Carousel interval={3000}>
+            {[1, 2, 3, 4].map((item, i) => (
+              <Flex key={i} justify={'center'}>
+                <Image
+                  draggable={'false'}
+                  src={'/assets/LandingCarousel/' + item + '.jpg'}
+                  alt="pic"
+                  maxH={600}
+                />
+              </Flex>
+            ))}
+          </Carousel>
+        </Box>
+      </Flex>
 
-      {/* <Divider /> */}
       <AdvocateSpotlight />
 
-      <Box mb={10}>
-        <Text textStyle="h2">Advocate Roles</Text>
-      </Box>
-
-      <RolesComp />
-
-      {/* <VStack>
-        <Text pt={20} mb={'-6'} textStyle="h2">
-          How It Works
+      <Flex justify={'center'} mt={100}>
+        <Text fontFamily={'Open Sans'} fontSize={30}>
+          Advocate Roles
         </Text>
-        <Image
-          pb={20}
-          alt="advocateDAO banner"
-          src="/assets/InfoGraphics/AdvocateDAO@2x2.png"
-        />
-      </VStack> */}
+      </Flex>
+      <Flex justify={'center'}>
+        <RolesComp />
+      </Flex>
 
-      <VStack
-        p={'8'}
-        pt={'14'}
-        pb={'14'}
-        borderTop={'4px'}
-        borderBottom={'4px'}
-        borderRadius={'xl'}
-        borderColor={'blue.200'}
-      >
-        <Text textStyle="h2">Community Talk</Text>
-        <Text p="5" textStyle="h3">
-          Host community updates for the Graph Protocol and Web3 community!
+      <Flex mt={100} justify={'center'}>
+        <Box
+          px={'8'}
+          py={'14'}
+          borderY={'4px'}
+          borderRadius={'xl'}
+          borderColor={'blue.200'}
+        >
+          <Text align={'center'} textStyle="h2" mb={14}>
+            Community
+          </Text>
+          <HStack>
+            <VStack borderRight={'1px'} px={'20'}>
+              <Text textStyle="h3">Advocates</Text>
+              <Text textStyle="h1" p="5" pb={0}>
+                ~280
+              </Text>
+              <Text fontSize={18}>Advocates</Text>
+            </VStack>
+            <VStack borderRight={'1px'} px={'20'}>
+              <Text textStyle="h3">Grants</Text>
+              <Text textStyle="h1" p="5" pb={0}>
+                ~25
+              </Text>
+              <Text fontSize={18}>Issued</Text>
+            </VStack>
+            <VStack px={'20'}>
+              <Text textStyle="h3">Total Grants</Text>
+              <Text textStyle="h1" p="5" pb={0}>
+                ~$100k
+              </Text>
+              <Text fontSize={18}>grant funding</Text>
+            </VStack>
+          </HStack>
+        </Box>
+      </Flex>
+
+      <Flex justify={'center'} mt={100} mb={5}>
+        <Text pt={35} fontFamily={'Open Sans'} fontSize={30}>
+          Upcoming:
         </Text>
-      </VStack>
+      </Flex>
+      <CarouselComp events={props.eventList} />
 
-      <Box pt={28} mb={10}>
-        <Text textStyle="h2">Advocate Roles</Text>
-      </Box>
-
-      <RolesComp />
-
-      <VStack
+      {/* <VStack> */}
+      {/* <VStack
         p={'8'}
         pt={'14'}
         pb={'14'}
@@ -120,8 +136,43 @@ export default function Home() {
             Apply for Grant
           </Button>
         </Link>
-      </VStack>
-    </VStack>
-    // </Flex>
+      </VStack> */}
+      {/* </VStack> */}
+    </>
   );
+}
+
+export async function getStaticProps(context) {
+  let props = {
+    eventList: [],
+    revalidate: 1000,
+  };
+
+  const jwtClient = new google.auth.JWT({
+    scopes: ['https://www.googleapis.com/auth/calendar'],
+    email: process.env.GOOGLE_CLIENT_EMAIL,
+    keyFile: null,
+    key: process.env.GOOGLE_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
+  });
+
+  const calendar = google.calendar({
+    version: 'v3',
+    auth: jwtClient,
+  });
+
+  try {
+    const res = await calendar.events.list({
+      calendarId: process.env.GOOGLE_CAL_ID,
+      timeMin: new Date().toISOString(),
+      maxResults: 10,
+      singleEvents: true,
+      orderBy: 'startTime',
+    });
+
+    props.eventList = res.data.items;
+    console.log(props.eventList);
+  } catch (err) {
+    console.error('The API returned an error:', err);
+  }
+  return { props: props };
 }
