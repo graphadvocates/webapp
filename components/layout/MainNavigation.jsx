@@ -81,7 +81,7 @@ export default function MainNavigation() {
 
         <HStack spacing={8} alignItems={'center'}>
           <NextLink href="/">
-            <Img cursor={'pointer'} src="assets/Icons/graphIcon.svg" />
+            <Img cursor={'pointer'} src={'/assets/Icons/graphIcon.svg'} />
           </NextLink>
 
           <NavLink LinkList={Links} />
