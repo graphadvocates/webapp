@@ -20,6 +20,17 @@ import AdvocateSpotlight from '../components/AdvocateSpotlight';
 import CarouselComp from '../components/UpcomingEvents';
 import { google } from 'googleapis';
 
+import { gql } from 'graphql-request';
+import { hasuraAdminClient } from '../lib/hasura-admin-client';
+
+const GetSpotlight = gql`
+  query GetSpotlight {
+    spotlights(order_by: { created_at: desc }, limit: 1) {
+      spotlight_detail
+    }
+  }
+`;
+
 export default function Home(props) {
   return (
     <>
@@ -38,7 +49,7 @@ export default function Home(props) {
           overflow={'hidden'}
         >
           <Carousel interval={3000}>
-            {[1, 2, 3, 4].map((item, i) => (
+            {[1, 2, 3, 4, 5].map((item, i) => (
               <Flex key={i} justify={'center'}>
                 <Image
                   draggable={'false'}
@@ -52,7 +63,7 @@ export default function Home(props) {
         </Box>
       </Flex>
 
-      <AdvocateSpotlight />
+      <AdvocateSpotlight details={props.spotlightDetails} />
 
       <Flex justify={'center'} mt={100}>
         <Text fontFamily={'Open Sans'} fontSize={30}>
@@ -145,7 +156,8 @@ export default function Home(props) {
 export async function getStaticProps(context) {
   let props = {
     eventList: [],
-    revalidate: 1000,
+    spotlightDetails: {},
+    revalidate: 18000,
   };
 
   const jwtClient = new google.auth.JWT({
@@ -160,6 +172,7 @@ export async function getStaticProps(context) {
     auth: jwtClient,
   });
 
+  //Get calendar events
   try {
     const res = await calendar.events.list({
       calendarId: process.env.GOOGLE_CAL_ID,
@@ -170,9 +183,17 @@ export async function getStaticProps(context) {
     });
 
     props.eventList = res.data.items;
-    console.log(props.eventList);
   } catch (err) {
     console.error('The API returned an error:', err);
+  }
+
+  //Get advocate spotlight
+  try {
+    const getSpotlightOne = await hasuraAdminClient.request(GetSpotlight);
+    getSpotlightOne.spotlights[0].spotlight_detail;
+    props.spotlightDetails = getSpotlightOne.spotlights[0].spotlight_detail;
+  } catch (err) {
+    console.error('Failed to get advocate spotlight: ', err);
   }
   return { props: props };
 }
