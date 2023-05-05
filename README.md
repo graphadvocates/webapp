@@ -15,3 +15,7 @@ To run use `yarn dev`
 2. Images are shown in the order of the name of the file (e.g. 1.jpg, 2.jpg, etc..)
 3. Image recommendation are to maintain a max aspect ration of **2:1** (e.g. 2:1 and 1:1 will render perfectly). Anything beyond that will render blury
 4. Image will be renedered with a max height of **600px** (The image can be any size as long as it maintains appropriate ratios)
+
+## Modify Advocate Spotlight
+Data from the spotlight is stored in a Hesura DB to allow dynamic changes to be made through a form-like front-end.
+Go to graphadvocates.com/resources/spotlight to access the form to update the advocate spotlight. You will need an access key to authenticate.
