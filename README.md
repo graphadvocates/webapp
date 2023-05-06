@@ -19,3 +19,16 @@ To run use `yarn dev`
 ## Modify Advocate Spotlight
 Data from the spotlight is stored in a Hesura DB to allow dynamic changes to be made through a form-like front-end.
 Go to graphadvocates.com/resources/spotlight to access the form to update the advocate spotlight. You will need an access key to authenticate.
+
+### Notes
+Here are some important notes regarding the form submission system:
+
+- Anyone with the key can modify the website's information.
+- There is no option to modify previous submissions; a new form must be submitted. However, a modification feature can be added if needed.
+- The latest form submission will be displayed on the front page.
+- Each form submission will create a new entry in the database and will not overwrite previous entries, which could be useful for future reference.
+- The "Role(s)" field accepts comma-separated values.
+- The form includes general questions that apply to all spotlight submissions, but they can be customized.
+- The Advocate Spotlight section of the landing page can be customized to match the desired color scheme and layout. 
+
+
