@@ -276,7 +276,7 @@ async function grt30dayPriceAvg() {
 		const currentPrice = res.data["currentPrice"].lastPriceUSD;
 
 		// Return the calculated average
-		return [timeString, currentPrice.toString(), "test2"]; //res.data["currentPrice"].lastPriceUSD, returnAvg];
+		return [timeString, currentPrice.toString(), returnAvg.toString()];
 	} catch (err) {
 		console.log(err);
 		return 0;
