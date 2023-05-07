@@ -31,4 +31,13 @@ Here are some important notes regarding the form submission system:
 - The form includes general questions that apply to all spotlight submissions, but they can be customized.
 - The Advocate Spotlight section of the landing page can be customized to match the desired color scheme and layout. 
 
+## Modify the 30 Day GRT Avg
+The 30 day avg is calculated using two subgraphs (https://thegraph.com/explorer/subgraphs/G3JZhmKKHC4mydRzD6kSz5fCWve5WDYYCyTFSJyv3SD5?view=Playground&chain=mainnet) and (https://thegraph.com/explorer/subgraphs/Dgr3WsqFY8SoKW4RgzkCwyim4K4R4iejBxB1EVYEG2LN?view=Playground&chain=mainnet) as recommended by Derek.
 
+The 30 Day calculation runs in /api/googleSheet. It is automatically triggered by Vercel on mignight UTC as a cron job. Inside the code, you can modify which google sheet gets written by modifying the following values:
+```
+const sheetId = "...";
+const sheetName = "Sheet1";
+const range = "Sheet1!D2:F2"; // range of cells to write data to
+const rowIndex = 2; // row number to insert the new row before
+```
