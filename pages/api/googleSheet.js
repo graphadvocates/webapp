@@ -273,9 +273,10 @@ async function grt30dayPriceAvg() {
 		var minutes = ("0" + date.getUTCMinutes()).slice(-2);
 		var seconds = ("0" + date.getUTCSeconds()).slice(-2);
 		var timeString = hours + ":" + minutes + ":" + seconds + " UTC";
+		const currentPrice = res.data["currentPrice"].lastPriceUSD;
 
 		// Return the calculated average
-		return [timeString, "test1", "test2"]; //res.data["currentPrice"].lastPriceUSD, returnAvg];
+		return [timeString, currentPrice.toString(), "test2"]; //res.data["currentPrice"].lastPriceUSD, returnAvg];
 	} catch (err) {
 		console.log(err);
 		return 0;
