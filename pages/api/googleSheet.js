@@ -283,50 +283,11 @@ async function grt30dayPriceAvg() {
 	}
 }
 
-//This was testing from using coingecko api - Just terrible rate limit
-// function grt30dayAvg() {
-// 	var data = [];
-// 	var currPriceData = "0";
-
-// 	var date = new Date();
-// 	var hours = ("0" + date.getUTCHours()).slice(-2);
-// 	var minutes = ("0" + date.getUTCMinutes()).slice(-2);
-// 	var seconds = ("0" + date.getUTCSeconds()).slice(-2);
-// 	var timeString = hours + ":" + minutes + ":" + seconds + " UTC";
-
-// 	/**
-// 	 * The query can be run once/hour on the free api plan
-// 	 *  - This will get an array of 30 grt prices with a daily interval bewteen each one (29days + today).
-// 	 *  - Ordered from oldest to newest.
-// 	 **/
-// 	try {
-// 		var response = fetch(
-// 			"https://api.coingecko.com/api/v3/coins/the-graph/market_chart?vs_currency=usd&days=7&interval=daily"
-// 		);
-// 		if (response == "error code: 1020") {
-// 			throw new Error("error code: 1020 - API Limitation?");
-// 		} else if ("status" in JSON.parse(response)) {
-// 			const msg = JSON.parse(response);
-// 			throw new Error(JSON.stringify(msg));
-// 		}
-// 		data = JSON.parse(response).prices;
-// 	} catch (e) {
-// 		console.log("Caught Exception: " + e);
-// 	}
-
-// 	const dataLength = data.length;
-// 	let totalPriceSum = 0.0;
-// 	for (var key in data) {
-// 		totalPriceSum += +data[key][1];
-// 		currPriceData = data[key][1]; //only need the last one
-// 	}
-
-// 	let result = dataLength == 0 ? 0 : totalPriceSum / dataLength;
-
-// 	return [timeString, currPriceData, result];
-// }
-
 export default async function handler(req, res) {
+	if (req.query.API_KEY !== process.env.API_KEY) {
+		return res.status(401).send("You are not authorized to access this api.");
+	}
+
 	try {
 		//Query for price data get avg
 		const relst = await grt30dayPriceAvg();
