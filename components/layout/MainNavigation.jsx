@@ -73,7 +73,7 @@ export default function MainNavigation() {
 		>
 			<Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
 				{/* Side Bar Mobile Drop-Down Navigation */}
-				<Menu>
+				{/* <Menu>
 					<MenuButton
 						as={IconButton}
 						aria-label="Options"
@@ -88,7 +88,7 @@ export default function MainNavigation() {
 					<MenuList>
 						<Text>test</Text>
 					</MenuList>
-				</Menu>
+				</Menu> */}
 
 				{/* Main Navigation Header */}
 				<HStack spacing={8} alignItems={"center"}>
