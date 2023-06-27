@@ -18,7 +18,6 @@ import {
 	Divider,
 } from "@chakra-ui/react";
 import NavLink from "./NavLink";
-import NextLink from "next/link";
 import {
 	HamburgerIcon,
 	CloseIcon,
@@ -92,29 +91,13 @@ export default function MainNavigation() {
 
 				{/* Main Navigation Header */}
 				<HStack spacing={8} alignItems={"center"}>
-					<NextLink href="/">
+					<Link href="/">
 						<Img cursor={"pointer"} src={"/assets/Icons/graphIcon.svg"} />
-					</NextLink>
+					</Link>
 					<NavLink LinkList={Links} />
 				</HStack>
 
 				<Flex alignItems={"center"}>
-					{/* <Link
-						href="https://forms.clickup.com/37437860/f/13pgd4-4007/RXO7DCQPT5XCA8X7R7"
-						isExternal
-					>
-						<Button
-							border="2px"
-							borderColor="blue.200"
-							colorScheme={"blue"}
-							fontSize={"18"}
-							m={8}
-							p={4}
-						>
-							Apply Here!
-						</Button>
-					</Link> */}
-
 					<Menu>
 						<MenuButton
 							as={IconButton}
