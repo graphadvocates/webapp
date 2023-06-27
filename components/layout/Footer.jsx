@@ -66,10 +66,6 @@ export default function Footer() {
 								New
 							</Tag>
 						</Stack>
-
-						{/* <NextLink href={"/daoresources"}>Resources</NextLink> */}
-
-						<NextLink href={"#"}>FAQ</NextLink>
 					</Stack>
 
 					<Stack align={"flex-start"}>
