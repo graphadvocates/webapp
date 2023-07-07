@@ -233,7 +233,7 @@ export default function Grant(props) {
 					boxShadow={"dark-lg"}
 				>
 					{props.completedGrants.map((grant, index) => (
-						<TestimonialCard {...grant} index={index} />
+						<TestimonialCard {...grant} key={index} />
 					))}
 				</SimpleGrid>
 				<Box p={4}>
