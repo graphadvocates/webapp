@@ -56,6 +56,7 @@ export default function MainNavigation() {
 		// },
 		{ name: "Docs", path: "https://docs.graphadvocates.com/" },
 		{ name: "Forum", path: "https://forum.graphadvocates.com/" },
+		{ name: "Grants", path: "/grant", isExternal: false },
 	];
 
 	return (
@@ -103,9 +104,8 @@ export default function MainNavigation() {
 							as={IconButton}
 							onClick={applyIsOpen ? applyOnClose : applyOnOpen}
 							aria-label="Apply"
-							border="2px"
-							borderColor="blue.200"
-							colorScheme={"blue"}
+							borderColor="purple.200"
+							colorScheme={"purple"}
 							fontSize={"18"}
 							m={8}
 							p={4}
