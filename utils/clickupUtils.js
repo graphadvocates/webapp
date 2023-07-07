@@ -118,3 +118,60 @@ async function taskCountLoop(clickupClient, ViewID, lowerBound) {
 		tasklist: tasks,
 	};
 }
+
+/**
+ * Get completed Tasks
+ */
+export async function getCompletedGrants() {
+	const token = process.env.CLICKUP_API_KEY;
+
+	const { Clickup } = require("clickup.js");
+	const clickup = new Clickup(token);
+	let result = [];
+
+	//completed Task List ID: 13pgd4-14721
+	var data = await clickup.views.getTasks("13pgd4-14721", 0);
+	const tasks = data.body.tasks;
+
+	tasks.map((profile, idx) => {
+		const tmpProf = {};
+		const grantName = profile.name;
+		const forumLink = profile.custom_fields.find((field) => {
+			return field.id === "54aebea8-029b-4976-8630-41dd6e19b9e2";
+		});
+		const projectVision = profile.custom_fields.find((field) => {
+			return field.id === "93e57fd2-86b7-483a-9b8b-03fd97b91802";
+		});
+		const projectCategoryObject = profile.custom_fields.find((field) => {
+			return field.id === "302c7cfa-f12b-435e-afd2-3a1abbe1e875";
+		});
+		const projectShortDescription = profile.custom_fields.find((field) => {
+			return field.id === "74ec988c-99e2-4169-b142-98d440fd6fc3";
+		});
+
+		//Check value of field
+		tmpProf.grantName = grantName ?? "Completed Grant";
+		tmpProf.forumLink = forumLink.hasOwnProperty("value")
+			? forumLink.value
+			: "https://forum.graphadvocates.com";
+		tmpProf.projectVision = projectVision.hasOwnProperty("value")
+			? projectVision.value
+			: "Completed Grant Vision";
+		tmpProf.projectShortDescription = projectShortDescription.hasOwnProperty(
+			"value"
+		)
+			? projectShortDescription.value
+			: "Completed Grant Vision";
+
+		//Get project category
+		tmpProf.projectCategory = "Completed Grant Vision";
+		if (projectCategoryObject.hasOwnProperty("value")) {
+			const categories = projectCategoryObject.type_config.options;
+			tmpProf.projectCategory = categories[+projectCategoryObject.value].name;
+		}
+
+		result.push(tmpProf);
+	});
+
+	return result;
+}
