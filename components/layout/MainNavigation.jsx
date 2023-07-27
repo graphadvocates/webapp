@@ -57,7 +57,7 @@ export default function MainNavigation() {
 		// { name: "Docs", path: "https://docs.graphadvocates.com/" },
 		{
 			name: "Docs",
-			path: "https://doc.clickup.com/37437860/d/h/13pgd4-12827/ffae7924a657459/13pgd4-15947",
+			path: "https://doc.clickup.com/37437860/d/h/13pgd4-12827/ffae7924a657459/13pgd4-13387",
 		},
 		{ name: "Forum", path: "https://forum.graphadvocates.com/" },
 		{ name: "Grants", path: "/grant", isExternal: false },
