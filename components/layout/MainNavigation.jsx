@@ -54,7 +54,11 @@ export default function MainNavigation() {
 		//         },
 		//     ],
 		// },
-		{ name: "Docs", path: "https://docs.graphadvocates.com/" },
+		// { name: "Docs", path: "https://docs.graphadvocates.com/" },
+		{
+			name: "Docs",
+			path: "https://doc.clickup.com/37437860/d/h/13pgd4-12827/ffae7924a657459/13pgd4-15947",
+		},
 		{ name: "Forum", path: "https://forum.graphadvocates.com/" },
 		{ name: "Grants", path: "/grant", isExternal: false },
 	];
@@ -144,16 +148,6 @@ export default function MainNavigation() {
 					</Menu>
 				</Flex>
 			</Flex>
-
-			{/* {isOpen ? (
-                <Box pb={4} display={{ md: "none" }}>
-                    <Stack as={"nav"} spacing={4}>
-                        {Links.map((link, idx) => (
-                            <NavLink key={idx}>{link}</NavLink>
-                        ))}
-                    </Stack>
-                </Box>
-            ) : null} */}
 		</Box>
 	);
 }

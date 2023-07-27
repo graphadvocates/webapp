@@ -3,12 +3,6 @@ import { Wrap, Button, Box, Container, Flex, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 function ProfileList(props) {
-	const router = useRouter();
-
-	function pageifyHandler() {
-		router.push("/");
-	}
-
 	return (
 		<Flex p={10} pt={0} justify="center">
 			<VStack maxWidth={"1650px"}>
@@ -17,9 +11,6 @@ function ProfileList(props) {
 						<ProfileItem key={idx} prof={profile} idx={idx} />
 					))}
 				</Wrap>
-				<Button justify="center" onClick={pageifyHandler} colorScheme="blue">
-					Next
-				</Button>
 			</VStack>
 		</Flex>
 	);

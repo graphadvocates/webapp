@@ -1,4 +1,4 @@
-export async function getDaoMembers() {
+export async function getDaoMembers(pageNumber) {
 	const token = process.env.CLICKUP_API_KEY;
 
 	const { Clickup } = require("clickup.js");
@@ -10,7 +10,7 @@ export async function getDaoMembers() {
 	//advocate list id = 13pgd4-7367
 
 	//get member profiles
-	var data = await clickup.views.getTasks("13pgd4-7347", 0);
+	var data = await clickup.views.getTasks("13pgd4-7347", pageNumber);
 	// memberProfs = data.body.tasks;
 	const tasks = data.body.tasks;
 

@@ -57,14 +57,6 @@ export default function Footer() {
 
 						<Stack direction={"row"} align={"center"} spacing={2}>
 							<NextLink href={"/daomembers"}>Members</NextLink>
-							<Tag
-								size={"sm"}
-								bg={useColorModeValue("green.300", "green.800")}
-								ml={2}
-								color={"white"}
-							>
-								New
-							</Tag>
 						</Stack>
 					</Stack>
 

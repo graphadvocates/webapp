@@ -43,20 +43,21 @@ export default function ProfileItem(props) {
 				borderWidth="1px"
 				borderRadius="lg"
 				w={{ sm: "100%", md: "210px" }}
-				height={{ sm: "255px", md: "12rem" }}
+				// height={{ sm: "255px", md: "6rem" }}
+				height={"6rem"}
 				direction={{ base: "column", md: "column" }}
 				bgImage="linear-gradient(rgba(255, 255, 255, 0.527),rgba(250, 250, 250, 0.5)), white"
 				boxShadow={"2xl"}
 				padding={4}
 			>
-				<Flex justifyContent="center" flex={1}>
+				{/* <Flex justifyContent="center" flex={1}>
 					<Image
 						borderRadius="full"
 						boxSize="100px"
 						alt="Profile Image"
 						src={props.prof.imgURL_val}
 					/>
-				</Flex>
+				</Flex> */}
 				<Stack
 					flex={2}
 					flexDirection="column"

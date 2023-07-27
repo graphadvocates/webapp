@@ -69,6 +69,7 @@ function TestimonialCard(props) {
 						fontFamily={"Inter"}
 						fontWeight={"medium"}
 						color={"gray.500"}
+						isExternal
 					>
 						Learn More...
 					</Link>
