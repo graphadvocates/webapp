@@ -10,6 +10,7 @@ import {
 	WrapItem,
 	Wrap,
 	Divider,
+	Avatar,
 } from "@chakra-ui/react";
 
 export default function AdvocateSpotlight(props) {
@@ -17,48 +18,50 @@ export default function AdvocateSpotlight(props) {
 		<Flex w={"100%"}>
 			<VStack
 				w={"100%"}
-				bg="gray.100"
-				boxShadow="inset 0 0 25px rgba(0, 0, 0, 0.8)"
-				borderRadius={"md"}
 				py={14}
+				bgGradient={"radial(rgba(200, 140, 255, 0.1), rgba(200,200,255, 0.4))"}
 			>
-				<Flex
-					fontFamily={"Open Sans"}
-					fontWeight={"bold"}
-					fontSize={30}
-					color={"gray.700"}
-					p={4}
-				>
-					<Text alignSelf={"center"}>Advocate Spotlight:</Text>
-					<Text ml={4} fontWeight={800} color={"blue.800"}>
-						{" "}
-						{props.details.name}
-					</Text>
-				</Flex>
+				<Text alignSelf={"center"} textAlign={"center"} textStyle={"h2"} mb={8}>
+					Advocate Spotlight
+				</Text>
 				<Flex justify={"center"}>
 					<Box
 						p={5}
-						border={"1px"}
-						borderColor={"gray.300"}
 						borderRadius={"lg"}
 						boxShadow="0 0 15px rgba(0, 0, 0, 0.9)"
+						bgGradient={
+							"linear(to-tl, rgba(200, 140, 255, 0.6), rgba(255,255,255, 0.7) 80%)"
+						}
 						maxW={800}
 					>
+						<Flex
+							fontFamily={"Open Sans"}
+							fontWeight={"bold"}
+							fontSize={30}
+							color={"gray.700"}
+							p={4}
+						>
+							<Text ml={4} fontWeight={800} color={"blue.800"}>
+								{" "}
+								{props.details.name}
+							</Text>
+						</Flex>
 						<Flex alignItems="center">
-							<Image
+							<Avatar
 								m={4}
 								float={"left"}
 								src={props.details.picUrl}
 								alt="Image"
 							/>
 							<Box color={"blackAlpha.700"}>
-								<Text fontSize="md" fontWeight="bold" mb="2">
-									Advocate Role(s):
+								<Text fontSize="lg" fontWeight="bold" mb="2">
+									Role(s):
 									{props.details.role.split(",").map((role, index) => (
 										<Tag
 											key={index}
-											bg={"blue.100"}
+											bgGradient={"linear(to-r, red.400,pink.400)"}
 											fontWeight={"extrabold"}
+											color={"blackAlpha.900"}
 											alignSelf={"center"}
 											ml={index > 0 ? 2 : 0} // add some spacing between tags
 										>
@@ -70,14 +73,14 @@ export default function AdvocateSpotlight(props) {
 								<Text fontSize="md" fontWeight="bold" mb="2">
 									Region:{" "}
 									<Tag
-										bg={"red.100"}
+										bgGradient={"linear(to-r, purple.400,pink.400)"}
 										fontWeight={"extrabold"}
 										alignSelf={"center"}
 									>
 										{props.details.region}
 									</Tag>
 								</Text>
-								<Text fontSize="md" fontWeight="bold" mb="2">
+								{/* <Text fontSize="md" fontWeight="bold" mb="2">
 									Twitter:{" "}
 									<Tag
 										bg={"purple.100"}
@@ -96,7 +99,7 @@ export default function AdvocateSpotlight(props) {
 									>
 										{props.details.discord}
 									</Tag>
-								</Text>
+								</Text> */}
 							</Box>
 						</Flex>
 
@@ -116,12 +119,6 @@ export default function AdvocateSpotlight(props) {
 							fontWeight={600}
 							color={"blackAlpha.800"}
 						>
-							I am originally from Ecuador where I lived before coming to the US
-							for college. I worked as a civil engineer for 3 years out of
-							college, then switched to finance doing business valuations for
-							about 5 years. Most recently I founded a food manufacturing and
-							marketing company in Chicago which I managed for 10 years and sold
-							in 2022.
 							{props.details.background}
 						</Text>
 
@@ -146,7 +143,7 @@ export default function AdvocateSpotlight(props) {
 						>
 							*View the entire Article{" "}
 							<Link
-								color={"blue.400"}
+								color={"blue.700"}
 								href={props.details.fullArticle}
 								isExternal
 							>
@@ -155,17 +152,6 @@ export default function AdvocateSpotlight(props) {
 						</Text>
 					</Box>
 				</Flex>
-				{/* <SimpleGrid spacing={4} columns={3} textAlign={'center'}>
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/q1.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/intro.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/q2.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/backg.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/prof.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/q1.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/q1.png" />
-          <Image borderRadius={'lg'} src="/assets/LandingSpotlight/q1.png" />
-        </SimpleGrid> */}
-				{/* <Image h={'400px'} src="/assets/LandingSpotlight/1.jpeg" /> */}
 			</VStack>
 		</Flex>
 	);

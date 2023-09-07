@@ -10,7 +10,6 @@ import {
 	MenuItem,
 	MenuDivider,
 	useDisclosure,
-	useColorModeValue,
 	Stack,
 	Img,
 	Text,
@@ -65,7 +64,7 @@ export default function MainNavigation() {
 
 	return (
 		<Box
-			bg={useColorModeValue("rgba(12,10,29,1.0)", "blue.900")}
+			bg={"rgba(12,10,29,1.0)"}
 			px={4}
 			sx={{
 				position: "-webkit-sticky",
@@ -108,7 +107,6 @@ export default function MainNavigation() {
 							as={IconButton}
 							onClick={applyIsOpen ? applyOnClose : applyOnOpen}
 							aria-label="Apply"
-							borderColor="purple.200"
 							colorScheme={"purple"}
 							fontSize={"18"}
 							m={8}
@@ -118,15 +116,23 @@ export default function MainNavigation() {
 							Apply Here!
 							{applyIsOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
 						</MenuButton>
-						<MenuList>
+						<MenuList
+							bgGradient={"linear(to-l, rgba(123, 12, 235), rgba(188, 0, 209))"}
+						>
 							<Link
 								href="https://forms.clickup.com/37437860/f/13pgd4-4007/RXO7DCQPT5XCA8X7R7"
+								_hover={{
+									textDecoration: "none",
+								}}
 								isExternal
 							>
 								<MenuItem
-									color={"blackAlpha.900"}
 									justifyContent={"center"}
 									fontWeight={"700"}
+									bg={"transparent"}
+									_hover={{
+										bg: "rgba(255, 255, 255, 0.2)",
+									}}
 								>
 									Become an Advocate!
 								</MenuItem>
@@ -134,12 +140,18 @@ export default function MainNavigation() {
 							<Divider />
 							<Link
 								href="https://forms.clickup.com/37437860/f/13pgd4-3987/1HEIW31922QZ1CRS64"
+								_hover={{
+									textDecoration: "none",
+								}}
 								isExternal
 							>
 								<MenuItem
-									color={"blackAlpha.900"}
 									justifyContent={"center"}
 									fontWeight={"700"}
+									bg={"transparent"}
+									_hover={{
+										bg: "rgba(255, 255, 255, 0.2)",
+									}}
 								>
 									Community Grant
 								</MenuItem>
