@@ -12,6 +12,7 @@ import {
 	Flex,
 	Divider,
 	Link,
+	keyframes,
 } from "@chakra-ui/react";
 
 import RolesComp from "../components/RolesComp";
@@ -33,88 +34,114 @@ const GetSpotlight = gql`
 `;
 
 export default function Home(props) {
+	const animation = keyframes`
+    to {
+       background-position: 200%;
+     }
+  `;
 	return (
 		<>
-			<Flex justify={"center"} color={"whiteAlpha.900"} m={2} p={4}>
+			<Flex justify={"center"} color={"whiteAlpha.900"} mt={20} p={10}>
 				<Text textStyle="h1">Graph</Text>
 				<Text fontWeight={800} textStyle="h1" fontFamily={"heading"}>
 					Advocates
 				</Text>
 			</Flex>
 
-			<Flex justify={"center"} mb={100}>
-				<Box
-					maxW={1200}
-					bg={"blackAlpha.400"}
-					borderRadius={"3xl"}
-					overflow={"hidden"}
-				>
-					<Carousel interval={3000}>
-						{[1, 2, 3, 4, 5].map((item, i) => (
-							<Flex key={i} justify={"center"}>
-								<Image
-									draggable={"false"}
-									src={"/assets/LandingCarousel/" + item + ".jpg"}
-									alt="pic"
-									maxH={600}
-								/>
-							</Flex>
-						))}
-					</Carousel>
-				</Box>
-			</Flex>
+			<Text
+				bgGradient="linear(to-l, #fbbdff, #f5f2e9 )"
+				bgClip="text"
+				backgroundSize="200% auto"
+				animation={`${animation} 7s ease-in-out`}
+				fontSize={{ base: "xl", md: "3xl" }}
+				fontWeight={"extrabold"}
+				textAlign={"center"}
+				maxW={"4xl"}
+				mx={"auto"}
+				py={"50"}
+			>
+				The mission of the Graph AdvocatesDAO is to drive greater participation
+				in building a decentralized web3 and grow The Graph ecosystem by
+				supporting community-based initiatives and through contributions of
+				Graph Advocates.
+			</Text>
 
-			<AdvocateSpotlight details={props.spotlightDetails} />
-
-			<Flex justify={"center"} mt={100}>
-				<Text fontFamily={"Open Sans"} fontSize={30}>
+			<Box
+				bgGradient={"linear(to-b,rgba(10,10, 10, 0.1), rgba(100,100,200, 0.2))"}
+				mt={100}
+				py={145}
+				pb={200}
+			>
+				<Text textStyle={"h2"} textAlign={"center"} mb={6}>
 					Advocate Roles
 				</Text>
-			</Flex>
-			<Flex justify={"center"}>
-				<RolesComp />
-			</Flex>
+				{/* </Flex> */}
+				<Flex justify={"center"}>
+					<RolesComp />
+				</Flex>
+			</Box>
 
-			<Flex mt={100} justify={"center"}>
-				<Box
-					px={"8"}
-					py={"14"}
-					borderY={"4px"}
-					bgImage={"/assets/Backgrounds/bg-footer.jpg"}
-					bgRepeat={"no-repeat"}
-					bgPos={"center"}
-					bgSize={"cover"}
-					borderRadius={"xl"}
-					boxShadow={"dark-lg"}
-				>
-					<Text align={"center"} textStyle="h2" mb={14} fontWeight={900}>
-						Community
-					</Text>
-					<HStack>
-						<VStack borderRight={"1px"} px={"20"}>
-							<Text textStyle="h3">Advocates</Text>
-							<Text textStyle="h1" p="5" pb={0}>
-								{props.programStats.advocateCount}
-							</Text>
-							<Text fontSize={18}>Advocates</Text>
-						</VStack>
-						<VStack borderRight={"1px"} px={"20"}>
-							<Text textStyle="h3">Grants</Text>
-							<Text textStyle="h1" p="5" pb={0}>
-								{props.programStats.numberOfGrants}
-							</Text>
-							<Text fontSize={18}>Issued</Text>
-						</VStack>
-						<VStack px={"20"}>
-							<Text textStyle="h3">Grant Funds</Text>
-							<Text textStyle="h1" p="5" pb={0}>
-								{props.programStats.GRTissued % 1000}k
-							</Text>
-							<Text fontSize={18}>$GRT Issued for Completed Grants</Text>
-						</VStack>
-					</HStack>
-				</Box>
-			</Flex>
+			<Box>
+				<Flex justify={"center"}>
+					<Box bg={"blackAlpha.400"} borderRadius={"3xl"} overflow={"hidden"}>
+						<Carousel interval={3000}>
+							{[1, 2, 3, 4, 5].map((item, i) => (
+								<Flex key={i} justify={"center"}>
+									<Image
+										draggable={"false"}
+										src={"/assets/LandingCarousel/" + item + ".jpg"}
+										alt="pic"
+										maxH={600}
+									/>
+								</Flex>
+							))}
+						</Carousel>
+					</Box>
+				</Flex>
+
+				<Flex my={260} justify={"center"}>
+					<Box
+						px={"8"}
+						py={"14"}
+						borderY={"4px"}
+						bgImage={"/assets/Backgrounds/bg-footer.jpg"}
+						bgRepeat={"no-repeat"}
+						bgPos={"center"}
+						bgSize={"cover"}
+						borderRadius={"xl"}
+						boxShadow={"dark-lg"}
+					>
+						<Text align={"center"} textStyle="h2" mb={14} fontWeight={900}>
+							Community Insight
+						</Text>
+						<HStack>
+							<VStack borderRight={"1px"} px={"20"}>
+								<Text textStyle="h3">Advocates</Text>
+								<Text textStyle="h1" p="5" pb={0}>
+									{props.programStats.advocateCount}
+								</Text>
+								<Text fontSize={18}>Advocates</Text>
+							</VStack>
+							<VStack borderRight={"1px"} px={"20"}>
+								<Text textStyle="h3">Grants</Text>
+								<Text textStyle="h1" p="5" pb={0}>
+									{props.programStats.numberOfGrants}
+								</Text>
+								<Text fontSize={18}>Issued</Text>
+							</VStack>
+							<VStack px={"20"}>
+								<Text textStyle="h3">Grant Funds</Text>
+								<Text textStyle="h1" p="5" pb={0}>
+									{props.programStats.GRTissued % 1000}k
+								</Text>
+								<Text fontSize={18}>$GRT Issued for Completed Grants</Text>
+							</VStack>
+						</HStack>
+					</Box>
+				</Flex>
+			</Box>
+
+			<AdvocateSpotlight details={props.spotlightDetails} />
 
 			<Flex justify={"center"} mt={100} mb={5}>
 				<Text pt={35} fontFamily={"Open Sans"} fontSize={30}>
@@ -122,6 +149,8 @@ export default function Home(props) {
 				</Text>
 			</Flex>
 			<CarouselComp events={props.eventList} />
+
+			<Box my={"100"}></Box>
 
 			{/* <VStack> */}
 			{/* <VStack
