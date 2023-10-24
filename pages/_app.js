@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import Head from "next/head";
 import MainNavigation from "../components/layout/MainNavigation.jsx";
 import theme from "../styles/theme";
