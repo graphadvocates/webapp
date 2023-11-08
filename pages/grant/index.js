@@ -44,7 +44,6 @@ function TestimonialCard(props) {
 					{grantName}
 				</chakra.h3>
 				<Text
-					fontFamily={"Inter"}
 					fontWeight={"medium"}
 					fontSize={"15px"}
 					mb={4}
@@ -66,7 +65,6 @@ function TestimonialCard(props) {
 					</chakra.span>
 					<Link
 						href={forumLink}
-						fontFamily={"Inter"}
 						fontWeight={"medium"}
 						color={"gray.500"}
 						isExternal
