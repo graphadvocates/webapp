@@ -87,12 +87,27 @@ export default function Home(props) {
 						<Carousel interval={3000}>
 							{[1, 2, 3, 4, 5].map((item, i) => (
 								<Flex key={i} justify={"center"}>
-									<Image
-										draggable={"false"}
-										src={"/assets/LandingCarousel/" + item + ".jpg"}
-										alt="pic"
-										maxH={600}
-									/>
+									{/* i == 1 is the community talk image - i Know this is a bad way but I'm tired atm */}
+									{i === 1 ? (
+										<Link
+											href="https://www.youtube.com/channel/UCps-lu58cUfdcZoa8VWsfEw"
+											isExternal
+										>
+											<Image
+												draggable={"false"}
+												src={"/assets/LandingCarousel/" + item + ".jpg"}
+												alt="pic"
+												maxH={600}
+											/>
+										</Link>
+									) : (
+										<Image
+											draggable={"false"}
+											src={"/assets/LandingCarousel/" + item + ".jpg"}
+											alt="pic"
+											maxH={600}
+										/>
+									)}
 								</Flex>
 							))}
 						</Carousel>
