@@ -1,16 +1,37 @@
+@font-face {
+	font-family: "Euclid";
+	src: url("/fonts/Euclid_Circular_A-normal-400-100.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Euclid";
+	src: url("/fonts/Euclid_Circular_A_Medium-normal-500-100.ttf");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Euclid";
+	src: url("/fonts/Euclid_Circular_A_Semibold-normal-600-100.ttf");
+	font-weight: bolder;
+	font-style: italic;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: "Euclid", sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Euclid", sans-serif;
 }
