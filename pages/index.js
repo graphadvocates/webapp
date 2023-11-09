@@ -43,7 +43,7 @@ export default function Home(props) {
 		<>
 			<Flex justify={"center"} color={"whiteAlpha.900"} mt={20} p={10}>
 				<Text textStyle="h1">Graph</Text>
-				<Text fontWeight={800} textStyle="h1" fontFamily={"heading"}>
+				<Text fontWeight={"bolder"} textStyle="h1">
 					Advocates
 				</Text>
 			</Flex>

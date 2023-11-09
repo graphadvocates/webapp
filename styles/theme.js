@@ -18,7 +18,6 @@ const theme = extendTheme({
 				pos: "relative",
 				bgRepeat: "no-repeat",
 				color: "gray.200",
-				font: "Montserrat",
 			},
 		}),
 	},
@@ -48,10 +47,10 @@ const theme = extendTheme({
 		},
 	},
 
-	fonts: {
-		heading: "Montserrat",
-		body: "Montserrat",
-	},
+	// fonts: {
+	// 	heading: "Montserrat",
+	// 	body: "Montserrat",
+	// },
 });
 
 export default theme;

@@ -75,7 +75,6 @@ export default function NavLink(props) {
 								bg: "gray.200",
 								color: "black",
 							}}
-							fontFamily={"Open Sans"}
 							fontWeight={"bold"}
 							isExternal={link.isExternal ?? true}
 						>
