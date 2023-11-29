@@ -85,6 +85,10 @@ export default function Footer() {
 							Privacy Policy
 							<ExternalLinkIcon mx="2px" />
 						</Link>
+						<Link href={"https://snapshot.org/#/graphadvocates.eth"} isExternal>
+							DAO SnapShot
+							<ExternalLinkIcon mx="2px" />
+						</Link>
 					</Stack>
 
 					<Stack align={"flex-start"}>
